@@ -1,9 +1,8 @@
 ﻿using Microsoft.AspNetCore.Identity;
 using System.ComponentModel.DataAnnotations.Schema;
 using System.ComponentModel.DataAnnotations;
-using System.Drawing;
 
-namespace Project.Core.Entities.Common
+namespace Project.Core.Entities.Common.User
 {
     [Table("Users")]
     public class User : IdentityUser<int>
@@ -54,10 +53,8 @@ namespace Project.Core.Entities.Common
         public bool IsSelectedBranchAllAgentPermitted { get; set; }
         [Display(Name = "Designation")]
         public int? DesignationId { get; set; }
-        [ForeignKey("RoleId")]
-        public virtual Role Role { get; set; }
-        [ForeignKey("BranchId")]
-        public virtual Point Branch { get; set; }
+        //[ForeignKey("RoleId")]
+        //public virtual Role Role { get; set; }
 
         [ForeignKey("EntryBy")]
         public virtual User EntryByUser { get; set; }

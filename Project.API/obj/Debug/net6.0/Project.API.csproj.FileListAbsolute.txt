@@ -47,6 +47,7 @@ C:\Users\Asiq\Desktop\Asiq Clean Architecture\Clean.Project\Project.API\bin\Debu
 C:\Users\Asiq\Desktop\Asiq Clean Architecture\Clean.Project\Project.API\bin\Debug\net6.0\Microsoft.OpenApi.dll
 C:\Users\Asiq\Desktop\Asiq Clean Architecture\Clean.Project\Project.API\bin\Debug\net6.0\Microsoft.SqlServer.Server.dll
 C:\Users\Asiq\Desktop\Asiq Clean Architecture\Clean.Project\Project.API\bin\Debug\net6.0\Microsoft.Win32.SystemEvents.dll
+C:\Users\Asiq\Desktop\Asiq Clean Architecture\Clean.Project\Project.API\bin\Debug\net6.0\Serilog.dll
 C:\Users\Asiq\Desktop\Asiq Clean Architecture\Clean.Project\Project.API\bin\Debug\net6.0\Swashbuckle.AspNetCore.Swagger.dll
 C:\Users\Asiq\Desktop\Asiq Clean Architecture\Clean.Project\Project.API\bin\Debug\net6.0\Swashbuckle.AspNetCore.SwaggerGen.dll
 C:\Users\Asiq\Desktop\Asiq Clean Architecture\Clean.Project\Project.API\bin\Debug\net6.0\Swashbuckle.AspNetCore.SwaggerUI.dll

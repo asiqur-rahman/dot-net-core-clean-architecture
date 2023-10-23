@@ -49,13 +49,13 @@
               "target": "Package",
               "version": "[12.0.1, )"
             },
-            "Microsoft.AspNetCore.Routing.Abstractions": {
-              "target": "Package",
-              "version": "[2.2.0, )"
-            },
             "Microsoft.EntityFrameworkCore": {
               "target": "Package",
               "version": "[7.0.12, )"
+            },
+            "Serilog": {
+              "target": "Package",
+              "version": "[3.0.1, )"
             }
           },
           "imports": [

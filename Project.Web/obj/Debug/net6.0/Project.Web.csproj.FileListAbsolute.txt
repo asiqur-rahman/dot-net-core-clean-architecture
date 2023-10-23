@@ -11,6 +11,7 @@ C:\Users\Asiq\Desktop\Asiq Clean Architecture\Clean.Project\Project.Web\bin\Debu
 C:\Users\Asiq\Desktop\Asiq Clean Architecture\Clean.Project\Project.Web\bin\Debug\net6.0\Azure.Identity.dll
 C:\Users\Asiq\Desktop\Asiq Clean Architecture\Clean.Project\Project.Web\bin\Debug\net6.0\EntityFramework.SqlServer.dll
 C:\Users\Asiq\Desktop\Asiq Clean Architecture\Clean.Project\Project.Web\bin\Debug\net6.0\EntityFramework.dll
+C:\Users\Asiq\Desktop\Asiq Clean Architecture\Clean.Project\Project.Web\bin\Debug\net6.0\Humanizer.dll
 C:\Users\Asiq\Desktop\Asiq Clean Architecture\Clean.Project\Project.Web\bin\Debug\net6.0\JetBrains.Annotations.dll
 C:\Users\Asiq\Desktop\Asiq Clean Architecture\Clean.Project\Project.Web\bin\Debug\net6.0\Microsoft.AspNetCore.Cryptography.Internal.dll
 C:\Users\Asiq\Desktop\Asiq Clean Architecture\Clean.Project\Project.Web\bin\Debug\net6.0\Microsoft.AspNetCore.Cryptography.KeyDerivation.dll
@@ -19,6 +20,7 @@ C:\Users\Asiq\Desktop\Asiq Clean Architecture\Clean.Project\Project.Web\bin\Debu
 C:\Users\Asiq\Desktop\Asiq Clean Architecture\Clean.Project\Project.Web\bin\Debug\net6.0\Microsoft.Data.SqlClient.dll
 C:\Users\Asiq\Desktop\Asiq Clean Architecture\Clean.Project\Project.Web\bin\Debug\net6.0\Microsoft.EntityFrameworkCore.dll
 C:\Users\Asiq\Desktop\Asiq Clean Architecture\Clean.Project\Project.Web\bin\Debug\net6.0\Microsoft.EntityFrameworkCore.Abstractions.dll
+C:\Users\Asiq\Desktop\Asiq Clean Architecture\Clean.Project\Project.Web\bin\Debug\net6.0\Microsoft.EntityFrameworkCore.Design.dll
 C:\Users\Asiq\Desktop\Asiq Clean Architecture\Clean.Project\Project.Web\bin\Debug\net6.0\Microsoft.EntityFrameworkCore.Relational.dll
 C:\Users\Asiq\Desktop\Asiq Clean Architecture\Clean.Project\Project.Web\bin\Debug\net6.0\Microsoft.EntityFrameworkCore.SqlServer.dll
 C:\Users\Asiq\Desktop\Asiq Clean Architecture\Clean.Project\Project.Web\bin\Debug\net6.0\Microsoft.Extensions.Caching.Abstractions.dll
@@ -26,6 +28,7 @@ C:\Users\Asiq\Desktop\Asiq Clean Architecture\Clean.Project\Project.Web\bin\Debu
 C:\Users\Asiq\Desktop\Asiq Clean Architecture\Clean.Project\Project.Web\bin\Debug\net6.0\Microsoft.Extensions.Configuration.Abstractions.dll
 C:\Users\Asiq\Desktop\Asiq Clean Architecture\Clean.Project\Project.Web\bin\Debug\net6.0\Microsoft.Extensions.DependencyInjection.dll
 C:\Users\Asiq\Desktop\Asiq Clean Architecture\Clean.Project\Project.Web\bin\Debug\net6.0\Microsoft.Extensions.DependencyInjection.Abstractions.dll
+C:\Users\Asiq\Desktop\Asiq Clean Architecture\Clean.Project\Project.Web\bin\Debug\net6.0\Microsoft.Extensions.DependencyModel.dll
 C:\Users\Asiq\Desktop\Asiq Clean Architecture\Clean.Project\Project.Web\bin\Debug\net6.0\Microsoft.Extensions.Identity.Core.dll
 C:\Users\Asiq\Desktop\Asiq Clean Architecture\Clean.Project\Project.Web\bin\Debug\net6.0\Microsoft.Extensions.Identity.Stores.dll
 C:\Users\Asiq\Desktop\Asiq Clean Architecture\Clean.Project\Project.Web\bin\Debug\net6.0\Microsoft.Extensions.Logging.dll
@@ -43,6 +46,8 @@ C:\Users\Asiq\Desktop\Asiq Clean Architecture\Clean.Project\Project.Web\bin\Debu
 C:\Users\Asiq\Desktop\Asiq Clean Architecture\Clean.Project\Project.Web\bin\Debug\net6.0\Microsoft.OpenApi.dll
 C:\Users\Asiq\Desktop\Asiq Clean Architecture\Clean.Project\Project.Web\bin\Debug\net6.0\Microsoft.SqlServer.Server.dll
 C:\Users\Asiq\Desktop\Asiq Clean Architecture\Clean.Project\Project.Web\bin\Debug\net6.0\Microsoft.Win32.SystemEvents.dll
+C:\Users\Asiq\Desktop\Asiq Clean Architecture\Clean.Project\Project.Web\bin\Debug\net6.0\Mono.TextTemplating.dll
+C:\Users\Asiq\Desktop\Asiq Clean Architecture\Clean.Project\Project.Web\bin\Debug\net6.0\Serilog.dll
 C:\Users\Asiq\Desktop\Asiq Clean Architecture\Clean.Project\Project.Web\bin\Debug\net6.0\Swashbuckle.AspNetCore.Swagger.dll
 C:\Users\Asiq\Desktop\Asiq Clean Architecture\Clean.Project\Project.Web\bin\Debug\net6.0\Swashbuckle.AspNetCore.SwaggerGen.dll
 C:\Users\Asiq\Desktop\Asiq Clean Architecture\Clean.Project\Project.Web\bin\Debug\net6.0\Swashbuckle.AspNetCore.SwaggerUI.dll
@@ -55,6 +60,8 @@ C:\Users\Asiq\Desktop\Asiq Clean Architecture\Clean.Project\Project.Web\bin\Debu
 C:\Users\Asiq\Desktop\Asiq Clean Architecture\Clean.Project\Project.Web\bin\Debug\net6.0\System.Runtime.Caching.dll
 C:\Users\Asiq\Desktop\Asiq Clean Architecture\Clean.Project\Project.Web\bin\Debug\net6.0\System.Security.Cryptography.ProtectedData.dll
 C:\Users\Asiq\Desktop\Asiq Clean Architecture\Clean.Project\Project.Web\bin\Debug\net6.0\System.Security.Permissions.dll
+C:\Users\Asiq\Desktop\Asiq Clean Architecture\Clean.Project\Project.Web\bin\Debug\net6.0\System.Text.Encodings.Web.dll
+C:\Users\Asiq\Desktop\Asiq Clean Architecture\Clean.Project\Project.Web\bin\Debug\net6.0\System.Text.Json.dll
 C:\Users\Asiq\Desktop\Asiq Clean Architecture\Clean.Project\Project.Web\bin\Debug\net6.0\System.Windows.Extensions.dll
 C:\Users\Asiq\Desktop\Asiq Clean Architecture\Clean.Project\Project.Web\bin\Debug\net6.0\X.PagedList.dll
 C:\Users\Asiq\Desktop\Asiq Clean Architecture\Clean.Project\Project.Web\bin\Debug\net6.0\X.PagedList.Mvc.Core.dll
@@ -74,6 +81,7 @@ C:\Users\Asiq\Desktop\Asiq Clean Architecture\Clean.Project\Project.Web\bin\Debu
 C:\Users\Asiq\Desktop\Asiq Clean Architecture\Clean.Project\Project.Web\bin\Debug\net6.0\runtimes\win\lib\net6.0\System.Drawing.Common.dll
 C:\Users\Asiq\Desktop\Asiq Clean Architecture\Clean.Project\Project.Web\bin\Debug\net6.0\runtimes\win\lib\net6.0\System.Runtime.Caching.dll
 C:\Users\Asiq\Desktop\Asiq Clean Architecture\Clean.Project\Project.Web\bin\Debug\net6.0\runtimes\win\lib\net6.0\System.Security.Cryptography.ProtectedData.dll
+C:\Users\Asiq\Desktop\Asiq Clean Architecture\Clean.Project\Project.Web\bin\Debug\net6.0\runtimes\browser\lib\net6.0\System.Text.Encodings.Web.dll
 C:\Users\Asiq\Desktop\Asiq Clean Architecture\Clean.Project\Project.Web\bin\Debug\net6.0\runtimes\win\lib\net6.0\System.Windows.Extensions.dll
 C:\Users\Asiq\Desktop\Asiq Clean Architecture\Clean.Project\Project.Web\bin\Debug\net6.0\Project.Common.dll
 C:\Users\Asiq\Desktop\Asiq Clean Architecture\Clean.Project\Project.Web\bin\Debug\net6.0\Project.Core.dll

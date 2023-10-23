@@ -2,7 +2,7 @@
 using System.ComponentModel.DataAnnotations.Schema;
 using System.ComponentModel.DataAnnotations;
 
-namespace Project.Core.Entities.Common
+namespace Project.Core.Entities.Common.Role
 {
     [Table("Roles")]
     public class Role : IdentityRole<int>
@@ -17,8 +17,6 @@ namespace Project.Core.Entities.Common
         [Display(Name = "Permitted Modules")]
         public string PermittedModule { get; set; }
 
-        //public virtual IEnumerable<User> Users { get; set; }
-        //public virtual IEnumerable<MenuConfig> MenuConfigs { get; set; }
         public virtual ICollection<IdentityRoleClaim<int>> Claims { get; set; }
     }
 }

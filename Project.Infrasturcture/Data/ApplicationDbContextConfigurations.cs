@@ -12,8 +12,8 @@ namespace Project.Infrasturcture.Data
     {
         public static void Configure(ModelBuilder modelBuilder)
         {
-            modelBuilder.Entity<IdentityUser>().ToTable("Users");
-            modelBuilder.Entity<IdentityRole>().ToTable("Roles");
+            //modelBuilder.Entity<IdentityUser>().ToTable("Users");
+            //modelBuilder.Entity<IdentityRole>().ToTable("Roles");
             // Add any additional entity configurations here
         }
 
