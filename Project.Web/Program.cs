@@ -12,21 +12,12 @@ builder.Services.AddDbContext<ApplicationDbContext>(options =>
 });
 
 // Add services to the container.
-builder.Services.AddControllersWithViews();
+builder.Services.AddControllersWithViews(); // is used for controllers that serve both API endpoints and HTML views. This allows you to generate HTML content in addition to handling API requests.
 
 #region New
 builder.Services.AddSession();
 builder.Services.RegisterService();
 
-builder.Services.AddEndpointsApiExplorer();
-builder.Services.AddSwaggerGen(c =>
-{
-    c.SwaggerDoc("v1", new OpenApiInfo
-    {
-        Title = "Clean Project",
-        Version = "v1",
-    });
-});
 #endregion
 
 var app = builder.Build();
@@ -40,12 +31,6 @@ if (!app.Environment.IsDevelopment())
 else
 {
     app.UseDeveloperExceptionPage();
-    app.UseSwagger();
-    app.UseSwaggerUI(c =>
-    {
-        c.SwaggerEndpoint("/swagger/v1/swagger.json", "Clean Project");
-        c.RoutePrefix = "swagger"; // This sets the URL path for accessing Swagger UI
-    });
 }
 
 app.UseSession();  // Add this line before other middleware
@@ -56,15 +41,17 @@ app.UseRouting();
 
 app.UseAuthorization();
 
-app.UseEndpoints(endpoints =>
+// Enable API Explorer middleware
+app.UseEndpoints(endpoints => 
 {
+    endpoints.MapControllers(); // Map your controllers
     endpoints.MapControllerRoute(
         name: "areas",
-        pattern: "{area:exists}/{controller=Home}/{action=Index}/{id?}");
+        pattern: "{area:exists}/{controller=Home}/{action=Index}/{id?}"); //Configures the routing
     endpoints.MapControllerRoute(
         name: "default",
-        pattern: "{controller=Home}/{action=Index}/{id?}");
+        pattern: "{controller=Home}/{action=Index}/{id?}"); //Configures the routing
 });
 
-app.MapControllers();
+//app.MapControllers(); // Map your controllers
 app.Run();
