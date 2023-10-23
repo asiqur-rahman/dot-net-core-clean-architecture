@@ -80,14 +80,14 @@
         }
       }
     },
-    "C:\\Users\\Asiq\\Desktop\\Asiq Clean Architecture\\Clean.Project\\Project.Infrasturcture\\Project.Infrasturcture.csproj": {
+    "C:\\Users\\Asiq\\Desktop\\Asiq Clean Architecture\\Clean.Project\\Project.Common\\Project.Common.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "C:\\Users\\Asiq\\Desktop\\Asiq Clean Architecture\\Clean.Project\\Project.Infrasturcture\\Project.Infrasturcture.csproj",
-        "projectName": "Project.Infrasturcture",
-        "projectPath": "C:\\Users\\Asiq\\Desktop\\Asiq Clean Architecture\\Clean.Project\\Project.Infrasturcture\\Project.Infrasturcture.csproj",
+        "projectUniqueName": "C:\\Users\\Asiq\\Desktop\\Asiq Clean Architecture\\Clean.Project\\Project.Common\\Project.Common.csproj",
+        "projectName": "Project.Common",
+        "projectPath": "C:\\Users\\Asiq\\Desktop\\Asiq Clean Architecture\\Clean.Project\\Project.Common\\Project.Common.csproj",
         "packagesPath": "C:\\Users\\Asiq\\.nuget\\packages\\",
-        "outputPath": "C:\\Users\\Asiq\\Desktop\\Asiq Clean Architecture\\Clean.Project\\Project.Infrasturcture\\obj\\",
+        "outputPath": "C:\\Users\\Asiq\\Desktop\\Asiq Clean Architecture\\Clean.Project\\Project.Common\\obj\\",
         "projectStyle": "PackageReference",
         "fallbackFolders": [
           "C:\\Program Files (x86)\\Microsoft Visual Studio\\Shared\\NuGetPackages",
@@ -121,9 +121,172 @@
         "net6.0": {
           "targetAlias": "net6.0",
           "dependencies": {
+            "AutoMapper": {
+              "target": "Package",
+              "version": "[12.0.1, )"
+            },
+            "Microsoft.AspNetCore.Routing.Abstractions": {
+              "target": "Package",
+              "version": "[2.2.0, )"
+            },
+            "Microsoft.EntityFrameworkCore": {
+              "target": "Package",
+              "version": "[7.0.12, )"
+            }
+          },
+          "imports": [
+            "net461",
+            "net462",
+            "net47",
+            "net471",
+            "net472",
+            "net48",
+            "net481"
+          ],
+          "assetTargetFallback": true,
+          "warn": true,
+          "frameworkReferences": {
+            "Microsoft.NETCore.App": {
+              "privateAssets": "all"
+            }
+          },
+          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\7.0.401\\RuntimeIdentifierGraph.json"
+        }
+      }
+    },
+    "C:\\Users\\Asiq\\Desktop\\Asiq Clean Architecture\\Clean.Project\\Project.Core\\Project.Core.csproj": {
+      "version": "1.0.0",
+      "restore": {
+        "projectUniqueName": "C:\\Users\\Asiq\\Desktop\\Asiq Clean Architecture\\Clean.Project\\Project.Core\\Project.Core.csproj",
+        "projectName": "Project.Core",
+        "projectPath": "C:\\Users\\Asiq\\Desktop\\Asiq Clean Architecture\\Clean.Project\\Project.Core\\Project.Core.csproj",
+        "packagesPath": "C:\\Users\\Asiq\\.nuget\\packages\\",
+        "outputPath": "C:\\Users\\Asiq\\Desktop\\Asiq Clean Architecture\\Clean.Project\\Project.Core\\obj\\",
+        "projectStyle": "PackageReference",
+        "fallbackFolders": [
+          "C:\\Program Files (x86)\\Microsoft Visual Studio\\Shared\\NuGetPackages",
+          "C:\\Program Files\\dotnet\\sdk\\NuGetFallbackFolder"
+        ],
+        "configFilePaths": [
+          "C:\\Users\\Asiq\\AppData\\Roaming\\NuGet\\NuGet.Config",
+          "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.FallbackLocation.config",
+          "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
+        ],
+        "originalTargetFrameworks": [
+          "net6.0"
+        ],
+        "sources": {
+          "C:\\Program Files (x86)\\Microsoft SDKs\\NuGetPackages\\": {},
+          "https://api.nuget.org/v3/index.json": {}
+        },
+        "frameworks": {
+          "net6.0": {
+            "targetAlias": "net6.0",
+            "projectReferences": {
+              "C:\\Users\\Asiq\\Desktop\\Asiq Clean Architecture\\Clean.Project\\Project.Common\\Project.Common.csproj": {
+                "projectPath": "C:\\Users\\Asiq\\Desktop\\Asiq Clean Architecture\\Clean.Project\\Project.Common\\Project.Common.csproj"
+              }
+            }
+          }
+        },
+        "warningProperties": {
+          "warnAsError": [
+            "NU1605"
+          ]
+        }
+      },
+      "frameworks": {
+        "net6.0": {
+          "targetAlias": "net6.0",
+          "dependencies": {
+            "Microsoft.EntityFrameworkCore": {
+              "target": "Package",
+              "version": "[7.0.12, )"
+            },
+            "X.PagedList.Mvc.Core": {
+              "target": "Package",
+              "version": "[8.4.7, )"
+            }
+          },
+          "imports": [
+            "net461",
+            "net462",
+            "net47",
+            "net471",
+            "net472",
+            "net48",
+            "net481"
+          ],
+          "assetTargetFallback": true,
+          "warn": true,
+          "frameworkReferences": {
+            "Microsoft.NETCore.App": {
+              "privateAssets": "all"
+            }
+          },
+          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\7.0.401\\RuntimeIdentifierGraph.json"
+        }
+      }
+    },
+    "C:\\Users\\Asiq\\Desktop\\Asiq Clean Architecture\\Clean.Project\\Project.Infrasturcture\\Project.Infrasturcture.csproj": {
+      "version": "1.0.0",
+      "restore": {
+        "projectUniqueName": "C:\\Users\\Asiq\\Desktop\\Asiq Clean Architecture\\Clean.Project\\Project.Infrasturcture\\Project.Infrasturcture.csproj",
+        "projectName": "Project.Infrasturcture",
+        "projectPath": "C:\\Users\\Asiq\\Desktop\\Asiq Clean Architecture\\Clean.Project\\Project.Infrasturcture\\Project.Infrasturcture.csproj",
+        "packagesPath": "C:\\Users\\Asiq\\.nuget\\packages\\",
+        "outputPath": "C:\\Users\\Asiq\\Desktop\\Asiq Clean Architecture\\Clean.Project\\Project.Infrasturcture\\obj\\",
+        "projectStyle": "PackageReference",
+        "fallbackFolders": [
+          "C:\\Program Files (x86)\\Microsoft Visual Studio\\Shared\\NuGetPackages",
+          "C:\\Program Files\\dotnet\\sdk\\NuGetFallbackFolder"
+        ],
+        "configFilePaths": [
+          "C:\\Users\\Asiq\\AppData\\Roaming\\NuGet\\NuGet.Config",
+          "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.FallbackLocation.config",
+          "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
+        ],
+        "originalTargetFrameworks": [
+          "net6.0"
+        ],
+        "sources": {
+          "C:\\Program Files (x86)\\Microsoft SDKs\\NuGetPackages\\": {},
+          "https://api.nuget.org/v3/index.json": {}
+        },
+        "frameworks": {
+          "net6.0": {
+            "targetAlias": "net6.0",
+            "projectReferences": {
+              "C:\\Users\\Asiq\\Desktop\\Asiq Clean Architecture\\Clean.Project\\Project.Common\\Project.Common.csproj": {
+                "projectPath": "C:\\Users\\Asiq\\Desktop\\Asiq Clean Architecture\\Clean.Project\\Project.Common\\Project.Common.csproj"
+              },
+              "C:\\Users\\Asiq\\Desktop\\Asiq Clean Architecture\\Clean.Project\\Project.Core\\Project.Core.csproj": {
+                "projectPath": "C:\\Users\\Asiq\\Desktop\\Asiq Clean Architecture\\Clean.Project\\Project.Core\\Project.Core.csproj"
+              }
+            }
+          }
+        },
+        "warningProperties": {
+          "warnAsError": [
+            "NU1605"
+          ]
+        }
+      },
+      "frameworks": {
+        "net6.0": {
+          "targetAlias": "net6.0",
+          "dependencies": {
+            "EntityFramework": {
+              "target": "Package",
+              "version": "[6.4.4, )"
+            },
             "Microsoft.AspNetCore.Identity.EntityFrameworkCore": {
               "target": "Package",
               "version": "[6.0.23, )"
+            },
+            "Microsoft.Data.SqlClient": {
+              "target": "Package",
+              "version": "[5.1.1, )"
             },
             "Microsoft.EntityFrameworkCore": {
               "target": "Package",
