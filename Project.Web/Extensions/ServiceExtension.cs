@@ -1,9 +1,12 @@
-﻿namespace Project.Web.Extensions
+﻿using Microsoft.Extensions.DependencyInjection.Extensions;
+
+namespace Project.Web.Extensions
 {
     public static class ServiceExtension
     {
         public static IServiceCollection RegisterService(this IServiceCollection services)
         {
+            services.TryAddSingleton<IHttpContextAccessor, HttpContextAccessor>();
             //#region Services
             //services.AddScoped<IProductService, ProductService>();
             //services.AddScoped<ICustomerService, CustomerService>();
