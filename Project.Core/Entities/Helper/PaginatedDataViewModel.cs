@@ -4,7 +4,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace Project.Core.Entities
+namespace Project.Core.Entities.Helper
 {
     public class PaginatedDataViewModel<T>
     {

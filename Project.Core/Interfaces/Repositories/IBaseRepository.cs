@@ -1,4 +1,4 @@
-﻿using Project.Core.Entities;
+﻿using Project.Core.Entities.Helper;
 
 namespace Project.Core.Interfaces.Repositories
 {

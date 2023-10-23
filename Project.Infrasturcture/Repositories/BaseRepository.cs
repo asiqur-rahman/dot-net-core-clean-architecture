@@ -14,8 +14,8 @@ using Project.Core.Interfaces.Repositories;
 using X.PagedList;
 using Microsoft.Data.SqlClient;
 using System.Data.Entity.Infrastructure;
-using Project.Core.Entities;
 using Project.Core.Exceptions;
+using Project.Core.Entities.Helper;
 
 namespace Project.Infrasturcture.Repositories
 {
