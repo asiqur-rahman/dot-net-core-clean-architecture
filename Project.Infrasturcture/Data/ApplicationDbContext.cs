@@ -6,7 +6,7 @@ using Project.Core.Entities.Common.User;
 
 namespace Project.Infrasturcture.Data
 {
-    public class ApplicationDbContext : IdentityDbContext<User, Role, int>
+    public class ApplicationDbContext : IdentityDbContext<User, UserRole, int>
     {
         private readonly ILoggerFactory _loggerFactory;
         protected ApplicationDbContext(DbContextOptions options) : base(options)

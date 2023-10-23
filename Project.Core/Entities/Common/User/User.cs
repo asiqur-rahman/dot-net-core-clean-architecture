@@ -1,6 +1,7 @@
 ﻿using Microsoft.AspNetCore.Identity;
 using System.ComponentModel.DataAnnotations.Schema;
 using System.ComponentModel.DataAnnotations;
+using Project.Core.Entities.Common.Role;
 
 namespace Project.Core.Entities.Common.User
 {
@@ -53,8 +54,8 @@ namespace Project.Core.Entities.Common.User
         public bool IsSelectedBranchAllAgentPermitted { get; set; }
         [Display(Name = "Designation")]
         public int? DesignationId { get; set; }
-        //[ForeignKey("RoleId")]
-        //public virtual Role Role { get; set; }
+        [ForeignKey("RoleId")]
+        public virtual UserRole Role { get; set; }
 
         [ForeignKey("EntryBy")]
         public virtual User EntryByUser { get; set; }

@@ -4,8 +4,8 @@ using System.ComponentModel.DataAnnotations;
 
 namespace Project.Core.Entities.Common.Role
 {
-    [Table("Roles")]
-    public class Role : IdentityRole<int>
+    [Table("UserRoles")]
+    public class UserRole : IdentityRole<int>
     {
         [Display(Name = "Role Name"), Required]
         [StringLength(50, ErrorMessage = "{0} can have a max of {1} characters")]
