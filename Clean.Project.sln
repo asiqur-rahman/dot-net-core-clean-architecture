@@ -9,13 +9,19 @@ Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Project.Core", "Project.Cor
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Project.Infrasturcture", "Project.Infrasturcture\Project.Infrasturcture.csproj", "{471862A5-A58E-496A-89EA-48AB64E3A4B2}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Project.API", "Project.API\Project.API.csproj", "{0454B873-2AF6-49B0-A842-51D3BF8FC2CC}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Project.API", "Project.API\Project.API.csproj", "{0454B873-2AF6-49B0-A842-51D3BF8FC2CC}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Project.Application", "Project.Application\Project.Application.csproj", "{D0904438-9F5B-4756-934E-1EB22047AA11}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Project.Application", "Project.Application\Project.Application.csproj", "{D0904438-9F5B-4756-934E-1EB22047AA11}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Project.Common", "Project.Common\Project.Common.csproj", "{A9B6F1EF-82F0-4493-B3C1-19FFC8042D9C}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Project.Common", "Project.Common\Project.Common.csproj", "{A9B6F1EF-82F0-4493-B3C1-19FFC8042D9C}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Project.xUnitTest", "Project.xUnitTest\Project.xUnitTest.csproj", "{403F3D40-8F8B-4384-A6A9-E0E7F6557B2A}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Project.xUnitTest", "Project.xUnitTest\Project.xUnitTest.csproj", "{403F3D40-8F8B-4384-A6A9-E0E7F6557B2A}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Solution Items", "Solution Items", "{ABAE462E-CC8A-4C7A-93BC-1D585F551C4B}"
+	ProjectSection(SolutionItems) = preProject
+		README - OLD.md = README - OLD.md
+		README.md = README.md
+	EndProjectSection
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
