@@ -1,8 +1,8 @@
 {
   "version": 2,
-  "dgSpecHash": "c03x1WYf5DtzrvnmjlvdZ9TZEiEwTjyfxC1jbBEuHo9VJgXYaT+Axz3cZ8uTrqpCnYITPqZMNQ8jbYt0qgkupg==",
+  "dgSpecHash": "qq1zzejCvjBetrDKj2c7taXmKoggRoaiMu3ACdoWAvo1IKtgMnomGh3nWqozIoyiRTgNSz6xd8kGtFPaTM4VNQ==",
   "success": true,
-  "projectFilePath": "C:\\Users\\Asiq\\Desktop\\Asiq Clean Architecture\\Clean.Project\\Project.Web\\Project.Web.csproj",
+  "projectFilePath": "C:\\Users\\Asiq\\Desktop\\eKYC\\dot-net-core-clean-architecture\\Project.Web\\Project.Web.csproj",
   "expectedPackageFiles": [
     "C:\\Users\\Asiq\\.nuget\\packages\\automapper\\12.0.1\\automapper.12.0.1.nupkg.sha512",
     "C:\\Users\\Asiq\\.nuget\\packages\\azure.core\\1.25.0\\azure.core.1.25.0.nupkg.sha512",

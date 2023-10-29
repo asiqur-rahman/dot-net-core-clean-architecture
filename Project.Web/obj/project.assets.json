@@ -4444,11 +4444,11 @@
   "project": {
     "version": "1.0.0",
     "restore": {
-      "projectUniqueName": "C:\\Users\\Asiq\\Desktop\\Asiq Clean Architecture\\Clean.Project\\Project.Web\\Project.Web.csproj",
+      "projectUniqueName": "C:\\Users\\Asiq\\Desktop\\eKYC\\dot-net-core-clean-architecture\\Project.Web\\Project.Web.csproj",
       "projectName": "Project.Web",
-      "projectPath": "C:\\Users\\Asiq\\Desktop\\Asiq Clean Architecture\\Clean.Project\\Project.Web\\Project.Web.csproj",
+      "projectPath": "C:\\Users\\Asiq\\Desktop\\eKYC\\dot-net-core-clean-architecture\\Project.Web\\Project.Web.csproj",
       "packagesPath": "C:\\Users\\Asiq\\.nuget\\packages\\",
-      "outputPath": "C:\\Users\\Asiq\\Desktop\\Asiq Clean Architecture\\Clean.Project\\Project.Web\\obj\\",
+      "outputPath": "C:\\Users\\Asiq\\Desktop\\eKYC\\dot-net-core-clean-architecture\\Project.Web\\obj\\",
       "projectStyle": "PackageReference",
       "fallbackFolders": [
         "C:\\Program Files (x86)\\Microsoft Visual Studio\\Shared\\NuGetPackages",
@@ -4470,8 +4470,8 @@
         "net6.0": {
           "targetAlias": "net6.0",
           "projectReferences": {
-            "C:\\Users\\Asiq\\Desktop\\Asiq Clean Architecture\\Clean.Project\\Project.Infrasturcture\\Project.Infrasturcture.csproj": {
-              "projectPath": "C:\\Users\\Asiq\\Desktop\\Asiq Clean Architecture\\Clean.Project\\Project.Infrasturcture\\Project.Infrasturcture.csproj"
+            "C:\\Users\\Asiq\\Desktop\\eKYC\\dot-net-core-clean-architecture\\Project.Infrasturcture\\Project.Infrasturcture.csproj": {
+              "projectPath": "C:\\Users\\Asiq\\Desktop\\eKYC\\dot-net-core-clean-architecture\\Project.Infrasturcture\\Project.Infrasturcture.csproj"
             }
           }
         }

@@ -234,36 +234,6 @@ namespace Project.Common.Extensions
                     return null;
             }
         }
-        public static GridData<T> ToGridDataList<T>(this IQueryable<T> superset, Expression<Func<T, bool>> predicate, List<ExpressionFilter> filters, string sort, string order, int pageNumber, int pageSize)
-        {
-            var dataList = new GridData<T>
-            {
-                Total = 0,
-                Rows = new List<T>()
-            };
-            try
-            {
-                var expressionTree = QueryableExtensions.ConstructAndExpressionTree<T>(filters);
-                var combineExpression = filters.Count > 0 ? predicate.And(expressionTree) : predicate ?? (arg => true);
-                var data = (IQueryable<T>)superset.Where(combineExpression).ApplyOrder(sort, order);
-
-                if (data != null && Queryable.Any<T>(data))
-                {
-                    dataList.Total = Queryable.Count<T>(data);
-                    dataList.Rows = pageNumber == 1 ?
-                        Queryable.Skip<T>(data, 0).Take<T>(pageSize).ToList<T>() :
-                        Queryable.Skip<T>(data, (pageNumber - 1) * pageSize).Take<T>(pageSize).ToList<T>();
-                    dataList.FirstItemOnPage = (pageNumber - 1) * pageSize + 1;
-                }
-            }
-            catch (Exception e)
-            {
-                // e
-            }
-
-
-            return dataList;
-        }
     }
 
     //var filters = new List<ExpressionFilter>

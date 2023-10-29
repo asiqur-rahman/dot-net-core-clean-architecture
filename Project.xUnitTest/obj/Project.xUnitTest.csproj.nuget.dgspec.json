@@ -1,17 +1,17 @@
 {
   "format": 1,
   "restore": {
-    "C:\\Users\\Asiq\\Desktop\\Asiq Clean Architecture\\Clean.Project\\Project.xUnitTest\\Project.xUnitTest.csproj": {}
+    "C:\\Users\\Asiq\\Desktop\\eKYC\\dot-net-core-clean-architecture\\Project.xUnitTest\\Project.xUnitTest.csproj": {}
   },
   "projects": {
-    "C:\\Users\\Asiq\\Desktop\\Asiq Clean Architecture\\Clean.Project\\Project.xUnitTest\\Project.xUnitTest.csproj": {
+    "C:\\Users\\Asiq\\Desktop\\eKYC\\dot-net-core-clean-architecture\\Project.xUnitTest\\Project.xUnitTest.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "C:\\Users\\Asiq\\Desktop\\Asiq Clean Architecture\\Clean.Project\\Project.xUnitTest\\Project.xUnitTest.csproj",
+        "projectUniqueName": "C:\\Users\\Asiq\\Desktop\\eKYC\\dot-net-core-clean-architecture\\Project.xUnitTest\\Project.xUnitTest.csproj",
         "projectName": "Project.xUnitTest",
-        "projectPath": "C:\\Users\\Asiq\\Desktop\\Asiq Clean Architecture\\Clean.Project\\Project.xUnitTest\\Project.xUnitTest.csproj",
+        "projectPath": "C:\\Users\\Asiq\\Desktop\\eKYC\\dot-net-core-clean-architecture\\Project.xUnitTest\\Project.xUnitTest.csproj",
         "packagesPath": "C:\\Users\\Asiq\\.nuget\\packages\\",
-        "outputPath": "C:\\Users\\Asiq\\Desktop\\Asiq Clean Architecture\\Clean.Project\\Project.xUnitTest\\obj\\",
+        "outputPath": "C:\\Users\\Asiq\\Desktop\\eKYC\\dot-net-core-clean-architecture\\Project.xUnitTest\\obj\\",
         "projectStyle": "PackageReference",
         "fallbackFolders": [
           "C:\\Program Files (x86)\\Microsoft Visual Studio\\Shared\\NuGetPackages",

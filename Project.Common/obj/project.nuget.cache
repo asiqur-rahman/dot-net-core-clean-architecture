@@ -1,8 +1,8 @@
 {
   "version": 2,
-  "dgSpecHash": "iJux1rdKiQb5xz/WgudvaEJNzi2iOTeQmhPZ29Lnj/9kZ8eO5kxc/bHB4avmlqzRK9q/Q0h4wkxr6srTJBbugA==",
+  "dgSpecHash": "yG6CM7ju+iJt67vm0hQ3Z7IrGp2BaJU6zzyR9XtnoGLn4/awvSJrHEGJoBAHCMFH2okNMQpGX5hytP6NRjN2hw==",
   "success": true,
-  "projectFilePath": "C:\\Users\\Asiq\\Desktop\\Asiq Clean Architecture\\Clean.Project\\Project.Common\\Project.Common.csproj",
+  "projectFilePath": "C:\\Users\\Asiq\\Desktop\\eKYC\\dot-net-core-clean-architecture\\Project.Common\\Project.Common.csproj",
   "expectedPackageFiles": [
     "C:\\Users\\Asiq\\.nuget\\packages\\automapper\\12.0.1\\automapper.12.0.1.nupkg.sha512",
     "C:\\Users\\Asiq\\.nuget\\packages\\microsoft.csharp\\4.7.0\\microsoft.csharp.4.7.0.nupkg.sha512",

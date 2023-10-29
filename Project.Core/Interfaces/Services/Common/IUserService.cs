@@ -19,24 +19,17 @@ namespace Project.Core.Interfaces.Services.Common
         Task<User> Get(int id);
         Task<string> GetRoleName(int roleId);
         IEnumerable<User> GetUserwiseAll(User user);
-        bool GenerateUserWisePrivileges(int userId, int roleId);
-        bool UpdateUserWisePrivileges(int userId, int roleId);
-        bool SaveUserAccess(int userId, string branchList, int entryBy, int id);
         IEnumerable<DropdownItemList> GetRoleDropDown();
         IEnumerable<DropdownItemList> GetAllAgent();
         IEnumerable<DropdownItemList> GetAllAgentByUser();
-        void Delete(int id);
         IEnumerable<UserDto> GetUserByRole(int roleId);
         List<User> GetLockedUsers();
         Task<bool> UnlockUser(int id);
         IEnumerable<DropdownItemList> GetUserDropdown();
-        List<int> GetAllAgentByBranch(int branchId);
         User GetUserById(int Id);
         User GetUserByBranchIdAndRoleId(int branchId, int roleId);
         UserDto GetUserByUserId(int userId);
         List<UserDto> GetUserByBranchAndRole(int branchId, int role);
-        List<User> GetUsersByAgent(int agentId);
-        bool SaveUserModule(int userId, string modulesList, int entryBy, int id);
         Task<bool> UpdateUser(User model);
     }
 }

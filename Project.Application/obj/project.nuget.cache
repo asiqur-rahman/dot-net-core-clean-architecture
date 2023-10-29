@@ -1,8 +1,8 @@
 {
   "version": 2,
-  "dgSpecHash": "mzbK0mh4A3c9yS0M+8AHGKrCzPTDTE6tyznGe2c1jRXVwt+MnapobWHV0qdyQ1InyqsJ8DW0ot9/npDkjPbBKA==",
+  "dgSpecHash": "4rOpdqtsqzN5mHsJf9AqvWhsw0zQiTqN2NdRhfP/0bNI6WfrzWo64X3wRb7Vn8Szz9mfBoLYMksbYRUn4tmn0w==",
   "success": true,
-  "projectFilePath": "C:\\Users\\Asiq\\Desktop\\Asiq Clean Architecture\\Clean.Project\\Project.Application\\Project.Application.csproj",
+  "projectFilePath": "C:\\Users\\Asiq\\Desktop\\eKYC\\dot-net-core-clean-architecture\\Project.Application\\Project.Application.csproj",
   "expectedPackageFiles": [
     "C:\\Users\\Asiq\\.nuget\\packages\\automapper\\12.0.1\\automapper.12.0.1.nupkg.sha512",
     "C:\\Users\\Asiq\\.nuget\\packages\\jetbrains.annotations\\2022.3.1\\jetbrains.annotations.2022.3.1.nupkg.sha512",
