@@ -1,5 +1,8 @@
+using Azure.Core;
+using Microsoft.AspNetCore.Routing;
 using Microsoft.OpenApi.Models;
 using Project.API.Middlewares;
+using System.IO;
 
 var builder = WebApplication.CreateBuilder(args);
 
@@ -28,8 +31,9 @@ builder.Services.AddSwaggerGen(c =>
 
 var app = builder.Build();
 
-//app.UseMiddleware<GlobalRoutePrefixMiddleware>("/api");
-//app.UsePathBase(new PathString("/api"));
+app.UseMiddleware<GlobalRoutePrefixMiddleware>("/api"); // By that the middleware will prepend "/api" to the beginning of all incoming request URLs.
+app.UsePathBase(new PathString("/api")); // By using app.UsePathBase(new PathString("/api")), you are essentially telling your application to prepend "/api" to the beginning of all route paths. This can be useful if you want to organize or version your API under a specific base path, such as "/api/v1," to distinguish it from other parts of your application.
+
 // Configure the HTTP request pipeline.
 if (app.Environment.IsDevelopment())
 {
@@ -38,7 +42,6 @@ if (app.Environment.IsDevelopment())
     {
         c.RoutePrefix = "swagger"; // This sets the URL path for accessing Swagger UI
         c.DocumentTitle = "Clean Project API";
-        //c.InjectJavascript("/swagger-ui/rapipdf-min.js");
         c.SwaggerEndpoint("/swagger/v1/swagger.json", "Clean Project API");
     });
 }
