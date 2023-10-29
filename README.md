@@ -40,9 +40,9 @@
     <br />
     <a href="https://github.com/othneildrew/Best-README-Template">View Demo</a>
     ·
-    <a href="https://github.com/othneildrew/Best-README-Template/issues">Report Bug</a>
+    <a href="https://github.com/asiqur-rahman/dot-net-core-clean-architecture/issues">Report Bug</a>
     ·
-    <a href="https://github.com/othneildrew/Best-README-Template/issues">Request Feature</a>
+    <a href="https://github.com/asiqur-rahman/dot-net-core-clean-architecture/issues">Request Feature</a>
   </p>
 </div>
 
@@ -171,7 +171,7 @@ _For more examples, please refer to the [Documentation](https://example.com)_
     - [ ] Chinese
     - [ ] Spanish
 
-See the [open issues](https://github.com/othneildrew/Best-README-Template/issues) for a full list of proposed features (and known issues).
+See the [open issues](https://github.com/asiqur-rahman/dot-net-core-clean-architecture/issues) for a full list of proposed features (and known issues).
 
 <p align="right">(<a href="#readme-top">back to top</a>)</p>
 
@@ -221,13 +221,6 @@ Project Link: [https://github.com/your_username/repo_name](https://github.com/yo
 Use this space to list resources you find helpful and would like to give credit to. I've included a few of my favorites to kick things off!
 
 * [Choose an Open Source License](https://choosealicense.com)
-* [GitHub Emoji Cheat Sheet](https://www.webpagefx.com/tools/emoji-cheat-sheet)
-* [Malven's Flexbox Cheatsheet](https://flexbox.malven.co/)
-* [Malven's Grid Cheatsheet](https://grid.malven.co/)
-* [Img Shields](https://shields.io)
-* [GitHub Pages](https://pages.github.com)
-* [Font Awesome](https://fontawesome.com)
-* [React Icons](https://react-icons.github.io/react-icons/search)
 
 <p align="right">(<a href="#readme-top">back to top</a>)</p>
 
@@ -236,17 +229,17 @@ Use this space to list resources you find helpful and would like to give credit 
 <!-- MARKDOWN LINKS & IMAGES -->
 <!-- https://www.markdownguide.org/basic-syntax/#reference-style-links -->
 [contributors-shield]: https://img.shields.io/github/contributors/othneildrew/Best-README-Template.svg?style=for-the-badge
-[contributors-url]: https://github.com/othneildrew/Best-README-Template/graphs/contributors
+[contributors-url]: https://github.com/asiqur-rahman/dot-net-core-clean-architecture/graphs/contributors
 [forks-shield]: https://img.shields.io/github/forks/othneildrew/Best-README-Template.svg?style=for-the-badge
-[forks-url]: https://github.com/othneildrew/Best-README-Template/network/members
+[forks-url]: https://github.com/asiqur-rahman/dot-net-core-clean-architecture/network/members
 [stars-shield]: https://img.shields.io/github/stars/othneildrew/Best-README-Template.svg?style=for-the-badge
-[stars-url]: https://github.com/othneildrew/Best-README-Template/stargazers
+[stars-url]: https://github.com/asiqur-rahman/dot-net-core-clean-architecture/stargazers
 [issues-shield]: https://img.shields.io/github/issues/othneildrew/Best-README-Template.svg?style=for-the-badge
-[issues-url]: https://github.com/othneildrew/Best-README-Template/issues
+[issues-url]: https://github.com/asiqur-rahman/dot-net-core-clean-architecture/issues
 [license-shield]: https://img.shields.io/github/license/othneildrew/Best-README-Template.svg?style=for-the-badge
-[license-url]: https://github.com/othneildrew/Best-README-Template/blob/master/LICENSE.txt
+[license-url]: https://github.com/asiqur-rahman/dot-net-core-clean-architecture/blob/master/LICENSE.txt
 [linkedin-shield]: https://img.shields.io/badge/-LinkedIn-black.svg?style=for-the-badge&logo=linkedin&colorB=555
-[linkedin-url]: https://linkedin.com/in/othneildrew
+[linkedin-url]: https://linkedin.com/in/asiqur.rahman
 [product-screenshot]: images/screenshot.png
 [Next.js]: https://img.shields.io/badge/next.js-000000?style=for-the-badge&logo=nextdotjs&logoColor=white
 [Next-url]: https://nextjs.org/
