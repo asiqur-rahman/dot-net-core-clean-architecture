@@ -1,12 +1,15 @@
 using Azure.Core;
+using Microsoft.AspNetCore.Authentication.JwtBearer;
 using Microsoft.AspNetCore.Routing;
+using Microsoft.IdentityModel.Tokens;
 using Microsoft.OpenApi.Models;
 using Project.API.Middlewares;
 using System.IO;
+using System.Text;
 
 var builder = WebApplication.CreateBuilder(args);
 
-// Add services to the container.
+#region Add services to the container
 
 // The following code configures PascalCase formatting instead of the default camelCase formatting
 builder.Services.AddControllers()
@@ -29,10 +32,41 @@ builder.Services.AddSwaggerGen(c =>
     });
 });
 
-var app = builder.Build();
+#region JWT Service
 
-app.UseMiddleware<GlobalRoutePrefixMiddleware>("/api"); // By that the middleware will prepend "/api" to the beginning of all incoming request URLs.
-app.UsePathBase(new PathString("/api")); // By using app.UsePathBase(new PathString("/api")), you are essentially telling your application to prepend "/api" to the beginning of all route paths. This can be useful if you want to organize or version your API under a specific base path, such as "/api/v1," to distinguish it from other parts of your application.
+//Configure JWT authentication at the time when the application starts. It specifies the authentication scheme as JwtBearer.
+builder.Services.AddAuthentication(options =>
+{
+    options.DefaultAuthenticateScheme = JwtBearerDefaults.AuthenticationScheme;
+    options.DefaultChallengeScheme = JwtBearerDefaults.AuthenticationScheme;
+    options.DefaultScheme = JwtBearerDefaults.AuthenticationScheme;
+}).AddJwtBearer(o =>
+{
+    o.TokenValidationParameters = new TokenValidationParameters
+    {
+        ValidIssuer = builder.Configuration["Jwt:Issuer"],
+        ValidAudience = builder.Configuration["Jwt:Audience"],
+        IssuerSigningKey = new SymmetricSecurityKey
+        (Encoding.UTF8.GetBytes(builder.Configuration["Jwt:Key"])),
+        ValidateIssuer = true,
+        ValidateAudience = true,
+        ValidateLifetime = false,
+        ValidateIssuerSigningKey = true
+    };
+});
+
+//To add authorization services to your application
+builder.Services.AddAuthorization();
+
+#endregion
+
+#endregion
+
+var app = builder.Build(); //After configuring services and middleware, you call builder.Build() to build and finalize the application's configuration. This method creates an IServiceProvider that includes all the registered services and middleware configurations. The IServiceProvider is essential for dependency injection and handling requests in your application.
+                           //In summary, builder.Build() is an essential step to create the application's service provider and make all the configured services and middleware available to the application.
+
+app.UseMiddleware<GlobalRoutePrefixMiddleware>("/api/v1"); // By that the middleware will prepend "/api" to the beginning of all incoming request URLs.
+app.UsePathBase(new PathString("/api/v1")); // By using app.UsePathBase(new PathString("/api")), essentially I am telling my application to prepend "/api" to the beginning of all route paths. This can be useful if I want to organize or version my API under a specific base path, such as "/api/v1," to distinguish it from other parts of my application.
 
 // Configure the HTTP request pipeline.
 if (app.Environment.IsDevelopment())
@@ -51,7 +85,11 @@ app.UseHttpsRedirection();
 
 
 app.UseRouting();
+
+#region To enable authentication and authorization capabilities
+app.UseAuthentication();
 app.UseAuthorization();
+#endregion
 
 app.UseEndpoints(endpoints =>
 {
