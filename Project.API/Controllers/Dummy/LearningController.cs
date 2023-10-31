@@ -1,6 +1,7 @@
-﻿using Microsoft.AspNetCore.Mvc;
+﻿using Microsoft.AspNetCore.Authorization;
+using Microsoft.AspNetCore.Mvc;
 
-namespace Project.API.Controllers
+namespace Project.API.Controllers.Dummy
 {
     [Route("[controller]")]
     [ApiController]
@@ -12,7 +13,7 @@ namespace Project.API.Controllers
             return new string[] { "value1", "value2" };
         }
 
-        [HttpGet("{id}", Name = "HAHA")]
+        [Authorize,HttpGet("Get/{id}", Name = "LearningGetById")]
         public string Get(int id)
         {
             return "value";
