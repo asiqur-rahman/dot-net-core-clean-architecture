@@ -16,6 +16,10 @@ build_property.GenerateRazorMetadataSourceChecksumAttributes =
 build_property.MSBuildProjectDirectory = C:\Users\Asiq\Desktop\eKYC\dot-net-core-clean-architecture\Project.Web
 build_property._RazorSourceGeneratorDebug = 
 
+[C:/Users/Asiq/Desktop/eKYC/dot-net-core-clean-architecture/Project.Web/Areas/Admin/Views/Admin/Index.cshtml]
+build_metadata.AdditionalFiles.TargetPath = QXJlYXNcQWRtaW5cVmlld3NcQWRtaW5cSW5kZXguY3NodG1s
+build_metadata.AdditionalFiles.CssScope = 
+
 [C:/Users/Asiq/Desktop/eKYC/dot-net-core-clean-architecture/Project.Web/Views/Home/Index.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcSG9tZVxJbmRleC5jc2h0bWw=
 build_metadata.AdditionalFiles.CssScope = 
@@ -26,6 +30,10 @@ build_metadata.AdditionalFiles.CssScope =
 
 [C:/Users/Asiq/Desktop/eKYC/dot-net-core-clean-architecture/Project.Web/Views/Shared/Error.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcU2hhcmVkXEVycm9yLmNzaHRtbA==
+build_metadata.AdditionalFiles.CssScope = 
+
+[C:/Users/Asiq/Desktop/eKYC/dot-net-core-clean-architecture/Project.Web/Views/Shared/_layout_Old.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcU2hhcmVkXF9sYXlvdXRfT2xkLmNzaHRtbA==
 build_metadata.AdditionalFiles.CssScope = 
 
 [C:/Users/Asiq/Desktop/eKYC/dot-net-core-clean-architecture/Project.Web/Views/Shared/_ValidationScriptsPartial.cshtml]
