@@ -21,6 +21,10 @@
       "PackagePath": "staticwebassets\\css\\bootstrap.min.css"
     },
     {
+      "Id": "C:\\Users\\Asiq\\Desktop\\eKYC\\dot-net-core-clean-architecture\\Project.Web\\wwwroot\\css\\css2",
+      "PackagePath": "staticwebassets\\css"
+    },
+    {
       "Id": "C:\\Users\\Asiq\\Desktop\\eKYC\\dot-net-core-clean-architecture\\Project.Web\\wwwroot\\css\\dripicons.css",
       "PackagePath": "staticwebassets\\css\\dripicons.css"
     },
