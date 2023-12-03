@@ -230,3 +230,4 @@ C:\Users\Asiq\Desktop\eKYC\dot-net-core-clean-architecture\Project.Web\obj\Debug
 C:\Users\Asiq\Desktop\eKYC\dot-net-core-clean-architecture\Project.Web\obj\Debug\net6.0\Project.Web.csproj.CopyComplete
 C:\Users\Asiq\Desktop\eKYC\dot-net-core-clean-architecture\Project.Web\obj\Debug\net6.0\Project.Web.genruntimeconfig.cache
 C:\Users\Asiq\Desktop\eKYC\dot-net-core-clean-architecture\Project.Web\obj\Debug\net6.0\ref\Project.Web.dll
+C:\Users\Asiq\Desktop\eKYC\dot-net-core-clean-architecture\Project.Web\bin\Debug\net6.0\Newtonsoft.Json.dll

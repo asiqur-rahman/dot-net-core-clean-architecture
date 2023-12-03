@@ -1,5 +1,9 @@
 ﻿using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc;
+using Project.Core.Entities.Common.Account.Dtos;
+using Project.Core.Entities.Common.User.Dtos;
+using Project.Core.Entities.Helper;
+using System.Threading.Tasks;
 
 namespace Project.API.Controllers.Dummy
 {
@@ -7,21 +11,17 @@ namespace Project.API.Controllers.Dummy
     [ApiController]
     public class LearningController : ControllerBase
     {
-        [HttpGet("Get")]
-        public IEnumerable<string> Get()
-        {
-            return new string[] { "value1", "value2" };
-        }
 
-        [Authorize,HttpGet("Get/{id}", Name = "LearningGetById")]
+        [Authorize,HttpGet("Get", Name = "LearningGetById")]
         public string Get(int id)
         {
             return "value";
         }
 
-        [HttpPost("asd")]
-        public void Post([FromBody] string value)
+        [HttpPost()]
+        public async Task<IActionResult> Post(LoginDto model)
         {
+            return BadRequest(new ApiResponse() { Message = "Something Wrong"});
         }
 
         [HttpPut("{id}")]

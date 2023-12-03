@@ -207,6 +207,10 @@
               "target": "Package",
               "version": "[7.0.12, )"
             },
+            "Newtonsoft.Json": {
+              "target": "Package",
+              "version": "[13.0.1, )"
+            },
             "X.PagedList.Mvc.Core": {
               "target": "Package",
               "version": "[8.4.7, )"

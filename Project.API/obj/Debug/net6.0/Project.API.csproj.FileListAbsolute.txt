@@ -221,3 +221,4 @@ C:\Users\Asiq\Desktop\eKYC\dot-net-core-clean-architecture\Project.API\obj\Debug
 C:\Users\Asiq\Desktop\eKYC\dot-net-core-clean-architecture\Project.API\obj\Debug\net6.0\Project.API.genruntimeconfig.cache
 C:\Users\Asiq\Desktop\eKYC\dot-net-core-clean-architecture\Project.API\obj\Debug\net6.0\ref\Project.API.dll
 C:\Users\Asiq\Desktop\eKYC\dot-net-core-clean-architecture\Project.API\bin\Debug\net6.0\Microsoft.AspNetCore.Authentication.JwtBearer.dll
+C:\Users\Asiq\Desktop\eKYC\dot-net-core-clean-architecture\Project.API\bin\Debug\net6.0\Newtonsoft.Json.dll
