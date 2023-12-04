@@ -1,4 +1,5 @@
 ﻿using Microsoft.AspNetCore.Authentication;
+using Microsoft.AspNetCore.Authentication.Cookies;
 using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
 using Project.Core.Entities.Common.Account.Dtos;
@@ -14,13 +15,13 @@ namespace Project.Web.Controllers
             _configuration = configuration;
         }
 
-        public IActionResult SignIn()
+        public IActionResult Login()
         {
             return View();
         }
 
         [HttpPost]
-        public async Task<IActionResult> SignIn(LoginDto model,string returnUrl= "/Home/Index")
+        public async Task<IActionResult> Login(LoginDto model,string returnUrl= "/Home/Index")
         {
             string cookieName = _configuration.GetValue<string>("Constants:CookieName");
 
@@ -28,7 +29,7 @@ namespace Project.Web.Controllers
                             new Claim(ClaimTypes.Name, model.Username, ClaimValueTypes.String, cookieName)
                         };
 
-            var userIdentity = new ClaimsIdentity(claims, "EzyUserIdentity");
+            var userIdentity = new ClaimsIdentity(claims, cookieName);
             var userPrincipal = new ClaimsPrincipal(userIdentity);
 
             await HttpContext.SignInAsync(cookieName, userPrincipal, new AuthenticationProperties
@@ -38,12 +39,13 @@ namespace Project.Web.Controllers
                 AllowRefresh = true
             });
 
-            return RedirectToAction(returnUrl);
+            return RedirectPermanent(returnUrl);
         }
 
-        public IActionResult SignOut()
+        public async Task<IActionResult> Logout()
         {
-            return RedirectToAction("/SignIn");
+            await HttpContext.SignOutAsync(_configuration.GetValue<string>("Constants:CookieName"));
+            return RedirectToAction("Index", "Home");
         }
     }
 }

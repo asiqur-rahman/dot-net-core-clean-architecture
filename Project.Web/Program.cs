@@ -24,8 +24,8 @@ builder.Services.AddAuthentication(options =>
 {
     options.SlidingExpiration = true;
     options.ExpireTimeSpan = TimeSpan.FromSeconds(builder.Configuration.GetValue<double>("", 18000));
-    options.LoginPath = new PathString("/Account/SignIn");
-    options.LogoutPath = new PathString("/Account/SignOut");
+    options.LoginPath = new PathString("/Account/Login");
+    options.LogoutPath = new PathString("/Account/Logout");
     options.AccessDeniedPath = new PathString("/Account/Forbidden");
     options.ReturnUrlParameter = "returnUrl";
     //options.ClaimsIssuer = "https://localhost:44381/";
@@ -65,6 +65,7 @@ app.UseStaticFiles();
 app.UseRouting();
 
 app.UseAuthorization();
+app.UseAuthentication();
 
 // Enable API Explorer middleware
 app.UseEndpoints(endpoints => 
