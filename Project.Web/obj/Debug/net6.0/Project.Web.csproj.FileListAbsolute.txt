@@ -114,18 +114,6 @@ C:\Users\Asiq\Desktop\Asiq Clean Architecture\Clean.Project\Project.Web\obj\Debu
 C:\Users\Asiq\Desktop\Asiq Clean Architecture\Clean.Project\Project.Web\obj\Debug\net6.0\Project.Web.pdb
 C:\Users\Asiq\Desktop\Asiq Clean Architecture\Clean.Project\Project.Web\obj\Debug\net6.0\Project.Web.genruntimeconfig.cache
 C:\Users\Asiq\Desktop\Asiq Clean Architecture\Clean.Project\Project.Web\obj\Debug\net6.0\ref\Project.Web.dll
-C:\Users\Asiq\Desktop\eKYC\dot-net-core-clean-architecture\Project.Web\obj\Debug\net6.0\Project.Web.csproj.AssemblyReference.cache
-C:\Users\Asiq\Desktop\eKYC\dot-net-core-clean-architecture\Project.Web\obj\Debug\net6.0\Project.Web.GeneratedMSBuildEditorConfig.editorconfig
-C:\Users\Asiq\Desktop\eKYC\dot-net-core-clean-architecture\Project.Web\obj\Debug\net6.0\Project.Web.AssemblyInfoInputs.cache
-C:\Users\Asiq\Desktop\eKYC\dot-net-core-clean-architecture\Project.Web\obj\Debug\net6.0\Project.Web.AssemblyInfo.cs
-C:\Users\Asiq\Desktop\eKYC\dot-net-core-clean-architecture\Project.Web\obj\Debug\net6.0\Project.Web.csproj.CoreCompileInputs.cache
-C:\Users\Asiq\Desktop\eKYC\dot-net-core-clean-architecture\Project.Web\obj\Debug\net6.0\Project.Web.MvcApplicationPartsAssemblyInfo.cs
-C:\Users\Asiq\Desktop\eKYC\dot-net-core-clean-architecture\Project.Web\obj\Debug\net6.0\Project.Web.MvcApplicationPartsAssemblyInfo.cache
-C:\Users\Asiq\Desktop\eKYC\dot-net-core-clean-architecture\Project.Web\obj\Debug\net6.0\Project.Web.RazorAssemblyInfo.cache
-C:\Users\Asiq\Desktop\eKYC\dot-net-core-clean-architecture\Project.Web\obj\Debug\net6.0\Project.Web.RazorAssemblyInfo.cs
-C:\Users\Asiq\Desktop\eKYC\dot-net-core-clean-architecture\Project.Web\obj\Debug\net6.0\Project.Web.dll
-C:\Users\Asiq\Desktop\eKYC\dot-net-core-clean-architecture\Project.Web\obj\Debug\net6.0\refint\Project.Web.dll
-C:\Users\Asiq\Desktop\eKYC\dot-net-core-clean-architecture\Project.Web\obj\Debug\net6.0\Project.Web.pdb
 C:\Users\Asiq\Desktop\eKYC\dot-net-core-clean-architecture\Project.Web\bin\Debug\net6.0\appsettings.Development.json
 C:\Users\Asiq\Desktop\eKYC\dot-net-core-clean-architecture\Project.Web\bin\Debug\net6.0\appsettings.json
 C:\Users\Asiq\Desktop\eKYC\dot-net-core-clean-architecture\Project.Web\bin\Debug\net6.0\Project.Web.staticwebassets.runtime.json
@@ -175,6 +163,7 @@ C:\Users\Asiq\Desktop\eKYC\dot-net-core-clean-architecture\Project.Web\bin\Debug
 C:\Users\Asiq\Desktop\eKYC\dot-net-core-clean-architecture\Project.Web\bin\Debug\net6.0\Microsoft.SqlServer.Server.dll
 C:\Users\Asiq\Desktop\eKYC\dot-net-core-clean-architecture\Project.Web\bin\Debug\net6.0\Microsoft.Win32.SystemEvents.dll
 C:\Users\Asiq\Desktop\eKYC\dot-net-core-clean-architecture\Project.Web\bin\Debug\net6.0\Mono.TextTemplating.dll
+C:\Users\Asiq\Desktop\eKYC\dot-net-core-clean-architecture\Project.Web\bin\Debug\net6.0\Newtonsoft.Json.dll
 C:\Users\Asiq\Desktop\eKYC\dot-net-core-clean-architecture\Project.Web\bin\Debug\net6.0\Serilog.dll
 C:\Users\Asiq\Desktop\eKYC\dot-net-core-clean-architecture\Project.Web\bin\Debug\net6.0\Swashbuckle.AspNetCore.Swagger.dll
 C:\Users\Asiq\Desktop\eKYC\dot-net-core-clean-architecture\Project.Web\bin\Debug\net6.0\Swashbuckle.AspNetCore.SwaggerGen.dll
@@ -217,6 +206,15 @@ C:\Users\Asiq\Desktop\eKYC\dot-net-core-clean-architecture\Project.Web\bin\Debug
 C:\Users\Asiq\Desktop\eKYC\dot-net-core-clean-architecture\Project.Web\bin\Debug\net6.0\Project.Infrasturcture.pdb
 C:\Users\Asiq\Desktop\eKYC\dot-net-core-clean-architecture\Project.Web\bin\Debug\net6.0\Project.Common.pdb
 C:\Users\Asiq\Desktop\eKYC\dot-net-core-clean-architecture\Project.Web\bin\Debug\net6.0\Project.Core.pdb
+C:\Users\Asiq\Desktop\eKYC\dot-net-core-clean-architecture\Project.Web\obj\Debug\net6.0\Project.Web.csproj.AssemblyReference.cache
+C:\Users\Asiq\Desktop\eKYC\dot-net-core-clean-architecture\Project.Web\obj\Debug\net6.0\Project.Web.GeneratedMSBuildEditorConfig.editorconfig
+C:\Users\Asiq\Desktop\eKYC\dot-net-core-clean-architecture\Project.Web\obj\Debug\net6.0\Project.Web.AssemblyInfoInputs.cache
+C:\Users\Asiq\Desktop\eKYC\dot-net-core-clean-architecture\Project.Web\obj\Debug\net6.0\Project.Web.AssemblyInfo.cs
+C:\Users\Asiq\Desktop\eKYC\dot-net-core-clean-architecture\Project.Web\obj\Debug\net6.0\Project.Web.csproj.CoreCompileInputs.cache
+C:\Users\Asiq\Desktop\eKYC\dot-net-core-clean-architecture\Project.Web\obj\Debug\net6.0\Project.Web.MvcApplicationPartsAssemblyInfo.cs
+C:\Users\Asiq\Desktop\eKYC\dot-net-core-clean-architecture\Project.Web\obj\Debug\net6.0\Project.Web.MvcApplicationPartsAssemblyInfo.cache
+C:\Users\Asiq\Desktop\eKYC\dot-net-core-clean-architecture\Project.Web\obj\Debug\net6.0\Project.Web.RazorAssemblyInfo.cache
+C:\Users\Asiq\Desktop\eKYC\dot-net-core-clean-architecture\Project.Web\obj\Debug\net6.0\Project.Web.RazorAssemblyInfo.cs
 C:\Users\Asiq\Desktop\eKYC\dot-net-core-clean-architecture\Project.Web\obj\Debug\net6.0\staticwebassets\msbuild.Project.Web.Microsoft.AspNetCore.StaticWebAssets.props
 C:\Users\Asiq\Desktop\eKYC\dot-net-core-clean-architecture\Project.Web\obj\Debug\net6.0\staticwebassets\msbuild.build.Project.Web.props
 C:\Users\Asiq\Desktop\eKYC\dot-net-core-clean-architecture\Project.Web\obj\Debug\net6.0\staticwebassets\msbuild.buildMultiTargeting.Project.Web.props
@@ -228,6 +226,8 @@ C:\Users\Asiq\Desktop\eKYC\dot-net-core-clean-architecture\Project.Web\obj\Debug
 C:\Users\Asiq\Desktop\eKYC\dot-net-core-clean-architecture\Project.Web\obj\Debug\net6.0\scopedcss\bundle\Project.Web.styles.css
 C:\Users\Asiq\Desktop\eKYC\dot-net-core-clean-architecture\Project.Web\obj\Debug\net6.0\scopedcss\projectbundle\Project.Web.bundle.scp.css
 C:\Users\Asiq\Desktop\eKYC\dot-net-core-clean-architecture\Project.Web\obj\Debug\net6.0\Project.Web.csproj.CopyComplete
+C:\Users\Asiq\Desktop\eKYC\dot-net-core-clean-architecture\Project.Web\obj\Debug\net6.0\Project.Web.dll
+C:\Users\Asiq\Desktop\eKYC\dot-net-core-clean-architecture\Project.Web\obj\Debug\net6.0\refint\Project.Web.dll
+C:\Users\Asiq\Desktop\eKYC\dot-net-core-clean-architecture\Project.Web\obj\Debug\net6.0\Project.Web.pdb
 C:\Users\Asiq\Desktop\eKYC\dot-net-core-clean-architecture\Project.Web\obj\Debug\net6.0\Project.Web.genruntimeconfig.cache
 C:\Users\Asiq\Desktop\eKYC\dot-net-core-clean-architecture\Project.Web\obj\Debug\net6.0\ref\Project.Web.dll
-C:\Users\Asiq\Desktop\eKYC\dot-net-core-clean-architecture\Project.Web\bin\Debug\net6.0\Newtonsoft.Json.dll

@@ -1,6 +1,6 @@
 {
   "Version": 1,
-  "Hash": "Q94TCdCTWw+mdJO4k+c9E95Y9qb7HxS4Ef2MEq5F9qI=",
+  "Hash": "eL/HDzAwafnffBrnjwCgeLLfzgCGFWat8m+fSSGTuq4=",
   "Source": "Project.Web",
   "BasePath": "_content/Project.Web",
   "Mode": "Default",
@@ -117,23 +117,6 @@
       "CopyToOutputDirectory": "Never",
       "CopyToPublishDirectory": "PreserveNewest",
       "OriginalItemSpec": "wwwroot\\css\\Chart.min.css"
-    },
-    {
-      "Identity": "C:\\Users\\Asiq\\Desktop\\eKYC\\dot-net-core-clean-architecture\\Project.Web\\wwwroot\\css\\css2",
-      "SourceId": "Project.Web",
-      "SourceType": "Discovered",
-      "ContentRoot": "C:\\Users\\Asiq\\Desktop\\eKYC\\dot-net-core-clean-architecture\\Project.Web\\wwwroot\\",
-      "BasePath": "_content/Project.Web",
-      "RelativePath": "css/css2",
-      "AssetKind": "All",
-      "AssetMode": "All",
-      "AssetRole": "Primary",
-      "RelatedAsset": "",
-      "AssetTraitName": "",
-      "AssetTraitValue": "",
-      "CopyToOutputDirectory": "Never",
-      "CopyToPublishDirectory": "PreserveNewest",
-      "OriginalItemSpec": "wwwroot\\css\\css2"
     },
     {
       "Identity": "C:\\Users\\Asiq\\Desktop\\eKYC\\dot-net-core-clean-architecture\\Project.Web\\wwwroot\\css\\dripicons.css",
