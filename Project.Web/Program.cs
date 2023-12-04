@@ -1,10 +1,9 @@
-using Microsoft.AspNetCore.Builder;
 using Microsoft.EntityFrameworkCore;
-using Microsoft.OpenApi.Models;
 using Project.Infrasturcture.Data;
 using Project.Web.Extensions;
 
 var builder = WebApplication.CreateBuilder(args);
+var cookieName = builder.Configuration.GetValue<string>("Constants:CookieName", "CleanProject");
 
 builder.Services.AddDbContext<ApplicationDbContext>(options =>
 {
@@ -13,6 +12,32 @@ builder.Services.AddDbContext<ApplicationDbContext>(options =>
 
 // Add services to the container.
 builder.Services.AddControllersWithViews(); // is used for controllers that serve both API endpoints and HTML views. This allows you to generate HTML content in addition to handling API requests.
+
+builder.Services.AddAuthentication(options =>
+{
+    options.DefaultAuthenticateScheme = cookieName;
+    options.DefaultSignInScheme = cookieName;
+    options.DefaultChallengeScheme = cookieName;
+    options.DefaultForbidScheme = cookieName;
+})
+.AddCookie(cookieName, options =>
+{
+    options.SlidingExpiration = true;
+    options.ExpireTimeSpan = TimeSpan.FromSeconds(builder.Configuration.GetValue<double>("", 18000));
+    options.LoginPath = new PathString("/Account/SignIn");
+    options.LogoutPath = new PathString("/Account/SignOut");
+    options.AccessDeniedPath = new PathString("/Account/Forbidden");
+    options.ReturnUrlParameter = "returnUrl";
+    //options.ClaimsIssuer = "https://localhost:44381/";
+    options.Cookie = new CookieBuilder
+    {
+        Name = cookieName,
+        HttpOnly = true,
+        SameSite = SameSiteMode.Strict,
+        IsEssential = true,
+        SecurePolicy = CookieSecurePolicy.Always
+    };
+});
 
 #region New
 builder.Services.AddSession();
