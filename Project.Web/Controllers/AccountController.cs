@@ -40,5 +40,10 @@ namespace Project.Web.Controllers
 
             return RedirectToAction(returnUrl);
         }
+
+        public IActionResult SignOut()
+        {
+            return RedirectToAction("/SignIn");
+        }
     }
 }
