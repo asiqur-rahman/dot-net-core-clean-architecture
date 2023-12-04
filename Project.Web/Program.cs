@@ -39,6 +39,7 @@ builder.Services.AddAuthentication(options =>
     };
 });
 
+builder.Services.AddRazorPages();
 #region New
 builder.Services.AddSession();
 builder.Services.RegisterService();
@@ -64,8 +65,10 @@ app.UseStaticFiles();
 
 app.UseRouting();
 
-app.UseAuthorization();
 app.UseAuthentication();
+app.UseAuthorization();
+
+app.MapRazorPages(); // Configure Razor Pages
 
 // Enable API Explorer middleware
 app.UseEndpoints(endpoints => 
