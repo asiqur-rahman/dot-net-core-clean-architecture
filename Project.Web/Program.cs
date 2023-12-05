@@ -1,9 +1,11 @@
 using Microsoft.EntityFrameworkCore;
+using Project.Core.Config;
 using Project.Infrasturcture.Data;
 using Project.Web.Extensions;
+using System.Configuration;
 
 var builder = WebApplication.CreateBuilder(args);
-var cookieName = builder.Configuration.GetValue<string>("Constants:CookieName");
+var cookieName = builder.Configuration.GetValue<string>("AppSettings:Cookie:Name");
 
 builder.Services.AddDbContext<ApplicationDbContext>(options =>
 {
@@ -40,6 +42,7 @@ builder.Services.AddAuthentication(options =>
 });
 
 builder.Services.AddRazorPages();
+builder.Services.Configure<AppSettings>(builder.Configuration.GetSection("AppSettings"));
 #region New
 builder.Services.AddSession();
 builder.Services.RegisterService();

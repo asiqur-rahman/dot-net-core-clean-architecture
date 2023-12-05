@@ -1,5 +1,7 @@
 ﻿using Microsoft.AspNetCore.Authentication;
 using Microsoft.AspNetCore.Mvc;
+using Microsoft.Extensions.Options;
+using Project.Core.Config;
 using Project.Core.Entities.Common.Account.Dtos;
 using Project.Core.Entities.Common.Security;
 using System.Security.Claims;
@@ -10,9 +12,11 @@ namespace Project.Web.Controllers
     public class AccountController : BaseController
     {
         public readonly IConfiguration _configuration;
-        public AccountController(IConfiguration configuration)
+        public readonly AppSettings _appSettings;
+        public AccountController(IConfiguration configuration, IOptions<AppSettings> appSettings)
         {
             _configuration = configuration;
+            _appSettings = appSettings.Value;
         }
 
         public IActionResult Login()
@@ -23,7 +27,7 @@ namespace Project.Web.Controllers
         [HttpPost]
         public async Task<IActionResult> Login(LoginDto model,string returnUrl= "/Home/Index")
         {
-            string cookieName = _configuration.GetValue<string>("Constants:CookieName");
+            string cookieName = _appSettings.Cookie.Name;
 
             var claims = new List<Claim> {
                             new Claim(ClaimTypes.Name, model.Username, ClaimValueTypes.String, cookieName)
@@ -38,15 +42,17 @@ namespace Project.Web.Controllers
                 IsPersistent = false,
                 AllowRefresh = true
             });
+
             UserPrincipal cookiesData = new UserPrincipal();
             cookiesData.Username = model.Username;
             HttpContext.Session.SetString("UserSessionData", JsonSerializer.Serialize(cookiesData));
+
             return RedirectPermanent(returnUrl);
         }
 
         public async Task<IActionResult> Logout()
         {
-            await HttpContext.SignOutAsync(_configuration.GetValue<string>("Constants:CookieName"));
+            await HttpContext.SignOutAsync(_appSettings.Cookie.Name);
 
             return RedirectToAction("Login");
         }
