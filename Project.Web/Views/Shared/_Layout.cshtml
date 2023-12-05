@@ -34,10 +34,12 @@
         <!-- Sidebar  -->
         <div class="iq-sidebar">
             <div class="iq-navbar-logo d-flex justify-content-between">
-                <a href="~/index.html" class="header-logo">
-                    <img src="~/images/logo.png" class="img-fluid rounded" alt="">
-                    <span>Clean Project</span>
-                </a>
+                <div style="width:100%;">
+                    <a href="~/index.html" class="header-logo text-center">
+                        <img src="~/images/logo.png" class="img-fluid rounded" alt="">
+                        <span>CProject</span>
+                    </a>
+                </div>
                 <div class="iq-menu-bt align-self-center">
                     <div class="wrapper-menu">
                         <div class="main-circle"><i class="ri-menu-line"></i></div>
@@ -53,7 +55,7 @@
                                 <span class="ripple rippleEffect"></span><i class="las la-home iq-arrow-left"></i><span>Dashboard</span><i class="ri-arrow-right-s-line iq-arrow-right"></i>
                             </a>
                             <ul id="dashboard" class="iq-submenu collapse show" data-parent="#iq-sidebar-toggle">
-                                <li><a href="~/index.html"><i class="las la-laptop-code"></i>Account Dashboard</a></li>
+                                <li><a href="javascript:void(0)" onclick="loadLink('@Url.Action("Privacy", "Home")')"><i class="las la-laptop-code"></i>Account Dashboard</a></li>
                                 <li><a href="~/dashboard-1.html"><i class="las la-ad"></i>Marketing Dashboard</a></li>
                                 <li><a href="~/dashboard-2.html"><i class="lab la-bandcamp"></i>Product Management</a></li>
                                 <li><a href="~/dashboard-3.html"><i class="las la-atom"></i>Sales Dashboard</a></li>
@@ -551,7 +553,7 @@
         <!-- TOP Nav Bar END -->
         <!-- Page Content  -->
         <div id="content-page" class="content-page">
-            <div class="container-fluid">
+            <div class="container-fluid" id="mainContent">
                 @RenderBody()
             </div>
         </div>

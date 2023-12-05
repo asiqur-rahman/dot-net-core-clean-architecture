@@ -9,8 +9,8 @@ var Spinner = (function () {
     }
     return result;
 }());
+
 function loadLink(url, id) {
-    ResetFingerKeys();
     if (typeof (id) === 'undefined') {
         loadPartialView(url, 'mainContent');
     } else {
@@ -18,7 +18,6 @@ function loadLink(url, id) {
     }
 }
 function loadPartialView(link, position) {
-
     $('#' + position).html('');
     Spinner.show();
     setTimeout(function () {
@@ -28,12 +27,10 @@ function loadPartialView(link, position) {
             type: 'GET',
             async: false,
             dataType: 'html',
-            //headers: $('input[name="__RequestVerificationToken"]').val(),
             beforeSend: function () {
                 Spinner.show();
             },
             success: function (result) {
-                debugger;
                 if (isJsonString(result) && JSON.parse(result).message != null) {
                     bootbox.alert(JSON.parse(result).message);
                     if (JSON.parse(result).redirectTo != null) {
@@ -52,4 +49,12 @@ function loadPartialView(link, position) {
             }
         }).responseText;
     }, 10);
+}
+function isJsonString(str) {
+    try {
+        JSON.parse(str);
+    } catch (e) {
+        return false;
+    }
+    return true;
 }
