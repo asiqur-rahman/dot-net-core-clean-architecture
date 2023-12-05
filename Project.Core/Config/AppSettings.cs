@@ -31,5 +31,6 @@ namespace Project.Core.Config
     public class Cookie
     {
         public string Name { get; set; }
+        public double Expires { get; set; }
     }
 }

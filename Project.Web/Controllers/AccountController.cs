@@ -38,7 +38,7 @@ namespace Project.Web.Controllers
 
             await HttpContext.SignInAsync(cookieName, userPrincipal, new AuthenticationProperties
             {
-                ExpiresUtc = DateTime.UtcNow.AddSeconds(18000),
+                ExpiresUtc = DateTime.UtcNow.AddSeconds(_appSettings.Cookie.Expires),
                 IsPersistent = false,
                 AllowRefresh = true
             });
