@@ -3,7 +3,7 @@ using Project.Infrasturcture.Data;
 using Project.Web.Extensions;
 
 var builder = WebApplication.CreateBuilder(args);
-var cookieName = builder.Configuration.GetValue<string>("Constants:CookieName", "CleanProject");
+var cookieName = builder.Configuration.GetValue<string>("Constants:CookieName");
 
 builder.Services.AddDbContext<ApplicationDbContext>(options =>
 {
