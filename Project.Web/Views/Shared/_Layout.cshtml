@@ -6,6 +6,10 @@
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
     <title>@ViewData["Title"]</title>
+    <meta http-equiv="Cache-Control" content="no-cache, no-store, must-revalidate" />
+    <meta http-equiv="Pragma" content="no-cache" />
+    <meta http-equiv="Expires" content="0" />
+
     <!-- Favicon -->
     <link rel="shortcut icon" href="~/images/favicon.ico" asp-append-version="true" />
     <!-- Bootstrap CSS -->
@@ -286,12 +290,12 @@
                             </a>
                         </div>
                     </div>
-                    <div class="iq-search-bar">
+                   @*  <div class="iq-search-bar">
                         <form action="#" class="searchbox">
                             <input type="text" class="text search-input" placeholder="Type here to search...">
                             <a class="search-link" href="#"><i class="ri-search-line"></i></a>
                         </form>
-                    </div>
+                    </div> *@
                     <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent"
                             aria-controls="navbarSupportedContent" aria-label="Toggle navigation">
                         <i class="ri-menu-3-line"></i>
@@ -476,7 +480,7 @@
                             <a href="#" class="search-toggle iq-waves-effect d-flex align-items-center">
                                 <img src="~/images/user/1.jpg" class="img-fluid rounded mr-3" alt="user">
                                 <div class="caption">
-                                    <h6 class="mb-0 line-height">Barry Tech</h6>
+                                    <h6 class="mb-0 line-height">@UserSessionData.Username</h6>
                                     <p class="mb-0">Manager</p>
                                 </div>
                             </a>
@@ -532,7 +536,7 @@
                                             </div>
                                         </a>
                                         <div class="d-inline-block w-100 text-center p-3">
-                                            <a class="bg-primary iq-sign-btn" href="~/sign-in.html" role="button">
+                                            <a class="bg-primary iq-sign-btn" href="/Account/Logout" role="button">
                                                 Sign out<i class="ri-login-box-line ml-2"></i>
                                             </a>
                                         </div>
@@ -651,7 +655,12 @@
     <script src="~/js/chart-custom.js"></script>
     <!-- Custom JavaScript -->
     <script src="~/js/custom.js" asp-append-version="true"></script>
-
+    <script>
+        history.pushState(null, null, location.href);
+        window.onpopstate = function () {
+            history.go(1);
+        };
+    </script>
     @await RenderSectionAsync("Scripts", required: false)
 </body>
 

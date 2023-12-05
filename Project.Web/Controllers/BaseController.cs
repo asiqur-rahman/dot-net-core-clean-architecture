@@ -1,9 +1,13 @@
 ﻿using Microsoft.AspNetCore.Mvc;
+using Project.Core.Entities.Common.Security;
+using System.Text.Json;
 
 namespace Project.Web.Controllers
 {
     public abstract class BaseController : Controller
     {
+        protected UserPrincipal? UserSessionData => JsonSerializer.Deserialize<UserPrincipal>(HttpContext.Session.GetString("UserSessionData"));
+
         public Dictionary<string, string> ConvertClassToDictionary(object obj)
         {
             Dictionary<string, string> dictionary = new Dictionary<string, string>();

@@ -5,6 +5,9 @@
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
     <title>@ViewData["Title"]</title>
+    <meta http-equiv="Cache-Control" content="no-cache, no-store, must-revalidate" />
+    <meta http-equiv="Pragma" content="no-cache" />
+    <meta http-equiv="Expires" content="0" />
     <!-- Favicon -->
     <link rel="shortcut icon" href="~/images/favicon.ico" />
     <!-- Bootstrap CSS -->
@@ -131,5 +134,12 @@
     <script src="~/js/chart-custom.js"></script>
     <!-- Custom JavaScript -->
     <script src="~/js/custom.js"></script>
+
+    <script>
+        history.pushState(null, null, location.href);
+        window.onpopstate = function () {
+            history.go(1);
+        };
+    </script>
 </body>
 </html>

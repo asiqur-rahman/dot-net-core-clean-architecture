@@ -5,6 +5,7 @@ using System.Diagnostics;
 
 namespace Project.Web.Controllers
 {
+    [Authorize]
     public class HomeController : BaseController
     {
         private readonly ILogger<HomeController> _logger;
@@ -18,7 +19,6 @@ namespace Project.Web.Controllers
             return View();
         }
 
-        [Authorize]
         public IActionResult Privacy()
         {
             return View();
