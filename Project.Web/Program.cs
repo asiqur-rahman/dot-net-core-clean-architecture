@@ -30,6 +30,7 @@ builder.Services.AddAuthentication(options =>
     options.LogoutPath = new PathString("/Account/Logout");
     options.AccessDeniedPath = new PathString("/Account/Forbidden");
     options.ReturnUrlParameter = "returnUrl";
+    options.Cookie.SameSite = SameSiteMode.Strict;
     //options.ClaimsIssuer = "https://localhost:44381/";
     options.Cookie = new CookieBuilder
     {
@@ -38,7 +39,7 @@ builder.Services.AddAuthentication(options =>
         SameSite = SameSiteMode.Strict,
         IsEssential = true,
         SecurePolicy = CookieSecurePolicy.Always
-    };
+};
 });
 
 builder.Services.AddRazorPages();

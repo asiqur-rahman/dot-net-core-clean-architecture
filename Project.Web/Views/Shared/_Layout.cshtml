@@ -51,23 +51,9 @@
                 <nav class="iq-sidebar-menu">
                     <ul id="iq-sidebar-toggle" class="iq-menu">
                         <li class="active">
-                            <a href="#dashboard" class="iq-waves-effect" data-toggle="collapse" aria-expanded="true">
-                                <span class="ripple rippleEffect"></span><i class="las la-home iq-arrow-left"></i><span>Dashboard</span><i class="ri-arrow-right-s-line iq-arrow-right"></i>
+                            <a href="javascript:void(0)" onclick="loadLink('@Url.Page("HomeDashboard")')" class="iq-waves-effect">
+                                <i class="las la-home iq-arrow-left"></i><span>Dashboard</span>
                             </a>
-                            <ul id="dashboard" class="iq-submenu collapse show" data-parent="#iq-sidebar-toggle">
-                                <li><a href="javascript:void(0)" onclick="loadLink('@Url.Action("Privacy", "Home")')"><i class="las la-laptop-code"></i>Account Dashboard</a></li>
-                                <li><a href="~/dashboard-1.html"><i class="las la-ad"></i>Marketing Dashboard</a></li>
-                                <li><a href="~/dashboard-2.html"><i class="lab la-bandcamp"></i>Product Management</a></li>
-                                <li><a href="~/dashboard-3.html"><i class="las la-atom"></i>Sales Dashboard</a></li>
-                                <li class="active">
-                                    <a href="~/dashboard-4.html">
-                                        <i class="las la-crosshairs"></i>Banking
-                                        Dashboard
-                                    </a>
-                                </li>
-                                <li><a href="~/dashboard-5.html"><i class="las la-cash-register"></i>Cash Management </a></li>
-                                <li><a href="~/dashboard-6.html"><i class="las la-bullseye"></i>Manufacturing </a></li>
-                            </ul>
                         </li>
                         <li>
                             <a href="#menu-design" class="iq-waves-effect" data-toggle="collapse" aria-expanded="false">
@@ -565,7 +551,7 @@
             <div class="row">
                 <div class="col-lg-6">
                     <ul class="list-inline mb-0">
-                        <li class="list-inline-item"><a href="~/privacy-policy.html">Privacy Policy</a></li>
+                        <li class="list-inline-item"><a href="javascript:void(0)" onclick="loadLink('@Url.Action("Privacy", "Home")')">Privacy Policy</a></li>
                         <li class="list-inline-item"><a href="~/terms-of-service.html">Terms of Use</a></li>
                     </ul>
                 </div>
@@ -582,8 +568,7 @@
         <div class="clearfix color-picker">
             <h3 class="iq-font-black">Clean Project Awesome Color</h3>
             <p>
-                This color combo available inside whole template. You can change on your wish, Even you can create your own
-                with limitless possibilities!
+                This color combo available inside whole template. You can change on your wish.
             </p>
             <ul class="iq-colorselect clearfix">
                 <li class="color-1 iq-colormark" data-style="color-1"></li>
@@ -607,7 +592,6 @@
                 <li class="color-19" data-style="iq-color-19"></li>
                 <li class="color-20" data-style="iq-color-20"></li>
             </ul>
-            <a target="_blank" class="btn btn-primary d-block mt-3" href="~/">Purchase Now</a>
         </div>
     </div>
     <!-- color-customizer END -->

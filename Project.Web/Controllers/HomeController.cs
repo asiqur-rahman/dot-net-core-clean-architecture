@@ -14,7 +14,8 @@ namespace Project.Web.Controllers
         {
             _logger = logger;
         }
-        public IActionResult Index()
+        [HttpGet(Name = "HomeDashboard")]
+        public IActionResult Dashboard()
         {
             return View();
         }

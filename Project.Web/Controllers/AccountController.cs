@@ -25,7 +25,7 @@ namespace Project.Web.Controllers
         }
 
         [HttpPost]
-        public async Task<IActionResult> Login(LoginDto model,string returnUrl= "/Home/Index")
+        public async Task<IActionResult> Login(LoginDto model,string returnUrl= "/Home/Dashboard")
         {
             string cookieName = _appSettings.Cookie.Name;
 
