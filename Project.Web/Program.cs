@@ -80,10 +80,10 @@ app.UseEndpoints(endpoints =>
     endpoints.MapControllers(); // Map your controllers
     endpoints.MapControllerRoute(
         name: "areas",
-        pattern: "{area:exists}/{controller=Home}/{action=Index}/{id?}"); //Configures the routing
+        pattern: "{area:exists}/{controller=Home}/{action=Dashboard}/{id?}"); //Configures the routing
     endpoints.MapControllerRoute(
         name: "default",
-        pattern: "{controller=Home}/{action=Index}/{id?}"); //Configures the routing
+        pattern: "{controller=Home}/{action=Dashboard}/{id?}"); //Configures the routing
 });
 
 //app.MapControllers(); // Map your controllers
