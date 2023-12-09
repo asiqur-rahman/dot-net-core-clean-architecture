@@ -33,7 +33,6 @@ namespace Project.Web.Controllers
         public async Task<IActionResult> Privacy()
         {
             await _signalRHubService.InvokeHubMethod("user", "ReceiveMessage", "Hello from user2");
-            await _signalRHubService.InvokeHubMethod("user2", "ReceiveMessage", "Hello from user1");
             return View();
         }
 
