@@ -6,6 +6,7 @@
                 const connection = new signalR.HubConnectionBuilder().withUrl("/signalRHub").build();
 
                 connection.on("ReceiveMessage", receiveMessageHandler);
+                connection.on("LogOut", logOutHandler);
 
                 connection.start().then(() => {
                     const username = $("#username").val();
@@ -32,3 +33,7 @@ function receiveMessageHandler(args) {
     console.log(args)
     alert("Receive Message Handler")
 }
+function logOutHandler(args) {
+    window.location.replace("/Account/Logout");
+}
+

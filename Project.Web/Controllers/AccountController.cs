@@ -15,10 +15,12 @@ namespace Project.Web.Controllers
     {
         public readonly IConfiguration _configuration;
         public readonly AppSettings _appSettings;
-        public AccountController(IConfiguration configuration, IOptions<AppSettings> appSettings)
+        private readonly SignalRHubService _signalRHubService;
+        public AccountController(IConfiguration configuration, IOptions<AppSettings> appSettings, SignalRHubService signalRHubService)
         {
             _configuration = configuration;
             _appSettings = appSettings.Value;
+            _signalRHubService = signalRHubService;
         }
 
         public IActionResult Login()
@@ -48,14 +50,16 @@ namespace Project.Web.Controllers
             UserPrincipal cookiesData = new UserPrincipal();
             cookiesData.Username = model.Username;
             HttpContext.Session.SetString("UserSessionData", JsonSerializer.Serialize(cookiesData));
-
+            if (_signalRHubService.IsUserConnected(model.Username))
+            {
+                await _signalRHubService.InvokeHubMethod(model.Username,"LogOut");
+            }
             return RedirectPermanent(returnUrl);
         }
 
         public async Task<IActionResult> Logout()
         {
             await HttpContext.SignOutAsync(_appSettings.Cookie.Name);
-
             return RedirectToAction("Login");
         }
     }
