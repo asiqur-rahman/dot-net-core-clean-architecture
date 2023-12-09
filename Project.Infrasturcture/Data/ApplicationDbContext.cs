@@ -51,4 +51,5 @@ namespace Project.Infrasturcture.Data
             base.OnModelCreating(builder);
         }
     }
+
 }

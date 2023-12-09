@@ -10,7 +10,12 @@ var cookieName = builder.Configuration.GetValue<string>("AppSettings:Cookie:Name
 
 builder.Services.AddDbContext<ApplicationDbContext>(options =>
 {
-    options.UseSqlServer(builder.Configuration.GetConnectionString("MsSqlConnection"));
+    options.UseSqlServer(builder.Configuration.GetConnectionString("MainMsSqlConnection"));
+});
+
+builder.Services.AddDbContext<MessagingDbContext>(options =>
+{
+    options.UseSqlServer(builder.Configuration.GetConnectionString("MessagingMsSqlConnection"));
 });
 
 // Add services to the container.
