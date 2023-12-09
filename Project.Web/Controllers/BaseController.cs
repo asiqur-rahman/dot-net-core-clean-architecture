@@ -1,11 +1,14 @@
 ﻿using Microsoft.AspNetCore.Mvc;
+using Microsoft.AspNetCore.SignalR;
 using Project.Core.Entities.Common.Security;
+using Project.Web.Hubs;
 using System.Text.Json;
 
 namespace Project.Web.Controllers
 {
     public abstract class BaseController : Controller
     {
+
         protected UserPrincipal? UserSessionData => JsonSerializer.Deserialize<UserPrincipal>(HttpContext.Session.GetString("UserSessionData"));
 
         public Dictionary<string, string> ConvertClassToDictionary(object obj)
@@ -25,5 +28,7 @@ namespace Project.Web.Controllers
 
             return dictionary;
         }
+        
+
     }
 }

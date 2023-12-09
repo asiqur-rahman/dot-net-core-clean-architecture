@@ -2,6 +2,7 @@ using Microsoft.EntityFrameworkCore;
 using Project.Core.Config;
 using Project.Infrasturcture.Data;
 using Project.Web.Extensions;
+using Project.Web.Hubs;
 using System.Configuration;
 
 var builder = WebApplication.CreateBuilder(args);
@@ -44,6 +45,9 @@ builder.Services.AddAuthentication(options =>
 
 builder.Services.AddRazorPages();
 builder.Services.Configure<AppSettings>(builder.Configuration.GetSection("AppSettings"));
+builder.Services.AddSingleton<SignalRUserMappingService>();
+builder.Services.AddSingleton<SignalRHubService>();
+builder.Services.AddSignalR();
 #region New
 builder.Services.AddSession();
 builder.Services.RegisterService();
@@ -72,18 +76,20 @@ app.UseRouting();
 app.UseAuthentication();
 app.UseAuthorization();
 
-app.MapRazorPages(); // Configure Razor Pages
+app.MapRazorPages(); //  Is called to enable Razor Pages which sets up Razor Pages in the application
 
 // Enable API Explorer middleware
 app.UseEndpoints(endpoints => 
 {
-    endpoints.MapControllers(); // Map your controllers
+    endpoints.MapControllers(); // Configuring other endpoints, such as controllers and API endpoints
+    endpoints.MapRazorPages(); // Specifically configures how requests to those Razor Pages are handled within the endpoint routing system
     endpoints.MapControllerRoute(
         name: "areas",
         pattern: "{area:exists}/{controller=Home}/{action=Dashboard}/{id?}"); //Configures the routing
     endpoints.MapControllerRoute(
         name: "default",
         pattern: "{controller=Home}/{action=Dashboard}/{id?}"); //Configures the routing
+    endpoints.MapHub<SignalRHub>("/signalRHub");
 });
 
 //app.MapControllers(); // Map your controllers

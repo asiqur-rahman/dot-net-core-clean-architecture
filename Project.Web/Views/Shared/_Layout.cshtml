@@ -23,6 +23,7 @@
 </head>
 
 <body>
+    @Html.Hidden("Username", UserSessionData.Username, new { id = "username" })
     <!-- loader Start -->
     <div id="loading">
         <div id="loading-center">
@@ -71,7 +72,7 @@
                             </ul>
                         </li>
                         <li>
-                            <a href="javascript:void(0)" onclick="loadLink('@Url.Page("/HomeDashboard")')" class="iq-waves-effect">
+                            <a href="javascript:void(0)" onclick="loadLink('@Url.Action("Privacy","Home")')" class="iq-waves-effect">
                                 <i class="las la-home iq-arrow-left"></i><span>Dashboard 2</span>
                             </a>
                         </li>
@@ -642,13 +643,14 @@
     <!-- Custom JavaScript -->
     <script src="~/js/custom.js" asp-append-version="true"></script>
     <script src="~/js/app.js" asp-append-version="true"></script>
+    <script src="~/js/signalrHandler.js" asp-append-version="true"></script>
     <script>
         history.pushState(null, null, location.href);
         window.onpopstate = function () {
             history.go(1);
         };
     </script>
-    @await RenderSectionAsync("Scripts", required: false)
+    @await RenderSectionAsync("Scripts", required: false);
 </body>
 
 </html>

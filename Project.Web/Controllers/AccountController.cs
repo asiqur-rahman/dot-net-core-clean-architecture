@@ -1,9 +1,11 @@
 ﻿using Microsoft.AspNetCore.Authentication;
 using Microsoft.AspNetCore.Mvc;
+using Microsoft.AspNetCore.SignalR;
 using Microsoft.Extensions.Options;
 using Project.Core.Config;
 using Project.Core.Entities.Common.Account.Dtos;
 using Project.Core.Entities.Common.Security;
+using Project.Web.Hubs;
 using System.Security.Claims;
 using System.Text.Json;
 
