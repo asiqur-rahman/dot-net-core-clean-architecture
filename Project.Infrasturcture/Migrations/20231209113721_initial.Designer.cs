@@ -12,8 +12,8 @@ using Project.Infrasturcture.Data;
 namespace Project.Infrasturcture.Migrations
 {
     [DbContext(typeof(ApplicationDbContext))]
-    [Migration("20231023120308_Initial")]
-    partial class Initial
+    [Migration("20231209113721_initial")]
+    partial class initial
     {
         /// <inheritdoc />
         protected override void BuildTargetModel(ModelBuilder modelBuilder)
@@ -42,14 +42,14 @@ namespace Project.Infrasturcture.Migrations
                     b.Property<int>("RoleId")
                         .HasColumnType("int");
 
-                    b.Property<int?>("RoleId1")
+                    b.Property<int?>("UserRoleId")
                         .HasColumnType("int");
 
                     b.HasKey("Id");
 
                     b.HasIndex("RoleId");
 
-                    b.HasIndex("RoleId1");
+                    b.HasIndex("UserRoleId");
 
                     b.ToTable("AspNetRoleClaims", (string)null);
                 });
@@ -138,7 +138,7 @@ namespace Project.Infrasturcture.Migrations
                     b.ToTable("AspNetUserTokens", (string)null);
                 });
 
-            modelBuilder.Entity("Project.Core.Entities.Common.Role.Role", b =>
+            modelBuilder.Entity("Project.Core.Entities.Common.Role.UserRole", b =>
                 {
                     b.Property<int>("Id")
                         .ValueGeneratedOnAdd()
@@ -332,6 +332,8 @@ namespace Project.Infrasturcture.Migrations
                         .HasDatabaseName("UserNameIndex")
                         .HasFilter("[NormalizedUserName] IS NOT NULL");
 
+                    b.HasIndex("RoleId");
+
                     b.HasIndex("UpdatedBy");
 
                     b.ToTable("AspNetUsers", (string)null);
@@ -339,15 +341,15 @@ namespace Project.Infrasturcture.Migrations
 
             modelBuilder.Entity("Microsoft.AspNetCore.Identity.IdentityRoleClaim<int>", b =>
                 {
-                    b.HasOne("Project.Core.Entities.Common.Role.Role", null)
+                    b.HasOne("Project.Core.Entities.Common.Role.UserRole", null)
                         .WithMany()
                         .HasForeignKey("RoleId")
                         .OnDelete(DeleteBehavior.Cascade)
                         .IsRequired();
 
-                    b.HasOne("Project.Core.Entities.Common.Role.Role", null)
+                    b.HasOne("Project.Core.Entities.Common.Role.UserRole", null)
                         .WithMany("Claims")
-                        .HasForeignKey("RoleId1");
+                        .HasForeignKey("UserRoleId");
                 });
 
             modelBuilder.Entity("Microsoft.AspNetCore.Identity.IdentityUserClaim<int>", b =>
@@ -374,7 +376,7 @@ namespace Project.Infrasturcture.Migrations
 
             modelBuilder.Entity("Microsoft.AspNetCore.Identity.IdentityUserRole<int>", b =>
                 {
-                    b.HasOne("Project.Core.Entities.Common.Role.Role", null)
+                    b.HasOne("Project.Core.Entities.Common.Role.UserRole", null)
                         .WithMany()
                         .HasForeignKey("RoleId")
                         .OnDelete(DeleteBehavior.Cascade)
@@ -402,16 +404,24 @@ namespace Project.Infrasturcture.Migrations
                         .WithMany()
                         .HasForeignKey("EntryBy");
 
+                    b.HasOne("Project.Core.Entities.Common.Role.UserRole", "Role")
+                        .WithMany()
+                        .HasForeignKey("RoleId")
+                        .OnDelete(DeleteBehavior.Cascade)
+                        .IsRequired();
+
                     b.HasOne("Project.Core.Entities.Common.User.User", "UpdatedByUser")
                         .WithMany()
                         .HasForeignKey("UpdatedBy");
 
                     b.Navigation("EntryByUser");
 
+                    b.Navigation("Role");
+
                     b.Navigation("UpdatedByUser");
                 });
 
-            modelBuilder.Entity("Project.Core.Entities.Common.Role.Role", b =>
+            modelBuilder.Entity("Project.Core.Entities.Common.Role.UserRole", b =>
                 {
                     b.Navigation("Claims");
                 });
