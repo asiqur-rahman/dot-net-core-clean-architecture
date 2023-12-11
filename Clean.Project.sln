@@ -9,7 +9,7 @@ Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Project.Core", "Project.Cor
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Project.Infrasturcture", "Project.Infrasturcture\Project.Infrasturcture.csproj", "{471862A5-A58E-496A-89EA-48AB64E3A4B2}"
 EndProject
-Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Project.API", "Project.API\Project.API.csproj", "{0454B873-2AF6-49B0-A842-51D3BF8FC2CC}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Project.Api", "Project.API\Project.Api.csproj", "{0454B873-2AF6-49B0-A842-51D3BF8FC2CC}"
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Project.Application", "Project.Application\Project.Application.csproj", "{D0904438-9F5B-4756-934E-1EB22047AA11}"
 EndProject
@@ -23,7 +23,7 @@ Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Solution Items", "Solution 
 		README.md = README.md
 	EndProjectSection
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Project.App", "Project.App\Project.App.csproj", "{502F3D51-02D1-453D-B282-CFE370BBF9A8}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Project.App", "Project.App\Project.App.csproj", "{502F3D51-02D1-453D-B282-CFE370BBF9A8}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
