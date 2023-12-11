@@ -1,0 +1,39 @@
+<Project Sdk="Microsoft.NET.Sdk.Web">
+
+  <PropertyGroup>
+    <TargetFramework>net6.0</TargetFramework>
+    <Nullable>enable</Nullable>
+    <ImplicitUsings>enable</ImplicitUsings>
+  </PropertyGroup>
+
+  <ItemGroup>
+    <PackageReference Include="Microsoft.AspNetCore.Identity.EntityFrameworkCore" Version="6.0.23" />
+    <PackageReference Include="Microsoft.AspNetCore.Routing" Version="2.1.1" />
+    <PackageReference Include="Microsoft.AspNetCore.SignalR" Version="1.0.4" />
+    <PackageReference Include="Microsoft.EntityFrameworkCore.Design" Version="7.0.12">
+      <PrivateAssets>all</PrivateAssets>
+      <IncludeAssets>runtime; build; native; contentfiles; analyzers; buildtransitive</IncludeAssets>
+    </PackageReference>
+    <PackageReference Include="Microsoft.EntityFrameworkCore.SqlServer" Version="7.0.12" />
+    <PackageReference Include="Swashbuckle.AspNetCore" Version="6.5.0" />
+    <PackageReference Include="Swashbuckle.AspNetCore.Swagger" Version="6.5.0" />
+    <PackageReference Include="Swashbuckle.AspNetCore.SwaggerGen" Version="6.5.0" />
+    <PackageReference Include="Swashbuckle.AspNetCore.SwaggerUI" Version="6.5.0" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <Folder Include="wwwroot\fonts\fontawesome\" />
+    <Folder Include="wwwroot\images\avatar\" />
+    <Folder Include="wwwroot\images\awards\" />
+    <Folder Include="wwwroot\images\flags\" />
+    <Folder Include="wwwroot\images\folders\" />
+    <Folder Include="wwwroot\images\foods\" />
+    <Folder Include="wwwroot\images\illustrations\" />
+    <Folder Include="wwwroot\images\logos\" />
+    <Folder Include="wwwroot\images\object\" />
+    <Folder Include="wwwroot\images\others\" />
+    <Folder Include="wwwroot\images\payments\" />
+    <Folder Include="wwwroot\images\travel\" />
+  </ItemGroup>
+
+</Project>

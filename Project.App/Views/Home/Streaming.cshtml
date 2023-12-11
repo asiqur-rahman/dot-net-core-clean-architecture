@@ -1,0 +1,69 @@
+﻿@section Css{
+    <link href="~/streamingHub/lib/alertifyjs/build/css/alertify.min.css" rel="stylesheet" />
+    <link href="~/streamingHub/lib/alertifyjs/build/css/themes/default.min.css" rel="stylesheet" />
+    <link href="~/streamingHub/Content/css/Custom.css" rel="stylesheet" />
+}
+
+@{
+    ViewBag.Title = "Home Page";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+<header>
+    <nav class="navbar navbar-expand-sm navbar-toggleable-sm navbar-light bg-white border-bottom box-shadow mb-3">
+        <div class="container">
+            <a class="navbar-brand" asp-area="" asp-controller="Home" asp-action="Index">WebRTC Audio Caller</a>
+            @*<span id="loadingSpinner" class="glyphicon glyphicon-repeat fast-right-spinner"></span>*@
+
+            <div class="collapse navbar-collapse">
+                <span class="navbar-text text-right">
+                    You are <span id="upperUsername"></span>
+                </span>
+            </div>
+            <button class="navbar-toggler" type="button" data-toggle="collapse" data-target=".navbar-collapse" aria-controls="navbarSupportedContent"
+                    aria-expanded="false" aria-label="Toggle navigation">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+        </div>
+    </nav>
+</header>
+<div class="row-fluid">
+    <div class="span3">
+        <div class="card card-body bg-light actions">
+            <div id="callstatus" class="status">Idle</div>
+            <button class="btn btn-danger hangup">Hang Up</button>
+        </div>
+        <div class="card card-body bg-light user-list">
+            <ul id="usersdata" class="list-group">
+                <li class="list-group-item">Online Users <small id="usersLength"></small></li>
+                <li class="list-group-item user" data-cid="" data-username="">
+                    <a href="#">
+                        <div class="username"></div>
+                        <div class="helper" data-bind="css: $parent.getUserStatus($data)"></div>
+                    </a>
+                </li>
+            </ul>
+        </div>
+        <div class="card card-body bg-light conn-type">
+            <button type="button" class="btn btn-dark">Connection Type <span class="badge badge-secondary">Audio</span></button>
+        </div>
+    </div>
+    <div class="span9">
+        <div class="row-fluid">
+            <div class="span6">
+                <h4>Partner</h4>
+                <audio class="audio partner" autoplay="" controls=""></audio>
+            </div>
+        </div>
+    </div>
+</div>
+
+@section Scripts{
+    <script src="~/streamingHub/lib/signalr/dist/browser/signalr.js"></script>
+    <script src="~/streamingHub/lib/alertifyjs/build/alertify.min.js"></script>
+    <script src="~/streamingHub/Content/js/utilsRTC.js"></script>
+    <script src="~/streamingHub/Content/js/constWebRTC.js"></script>
+    <script src="~/streamingHub/lib/adapter/adapter.min.js"></script>
+    <script src="~/streamingHub/Content/js/connectionHub.js"></script>
+    <script src="~/streamingHub/Content/js/Custom.js"></script>
+}
+
