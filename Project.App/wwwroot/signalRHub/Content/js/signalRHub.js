@@ -115,6 +115,7 @@ const newSignal = (partnerClientId, data) => {
     //console.log('connections: ', connections);
 
     var signal = JSON.parse(data);
+    console.log(data)
     var connection = getConnection(partnerClientId);
     //console.log("signal: ", signal);
     //console.log("signal: ", signal.sdp || signal.candidate);
@@ -351,13 +352,12 @@ wsconn.on('callDeclined', (decliningUser, reason) => {
     $('body').attr('data-mode', 'idle');
 });
 
-let callingUserDetails = {};
 // Hub Callback: Incoming Call
 wsconn.on('incomingCall', (callingUser) => {
     console.log('SignalR: incoming call from: ' + JSON.stringify(callingUser));
     $("#callingNumber").html(callingUser.username);
     $("#callingCard").show();
-    callingUserDetails = callingUser;
+    $("#callingUserDetails").val(JSON.stringify(callingUser));
     //// Ask if we want to talk
     //bootbox.confirm({
     //    title: 'Calling !',
@@ -387,6 +387,7 @@ wsconn.on('incomingCall', (callingUser) => {
 });
 
 function answerCall(value = false) {
+    const callingUserDetails = JSON.parse($("#callingUserDetails").val())
     wsconn.invoke('AnswerCall', value, callingUserDetails).catch(err => console.log(err));
     $("#callingCard").hide();
 }
