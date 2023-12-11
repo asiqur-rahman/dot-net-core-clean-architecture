@@ -1,24 +1,27 @@
 ﻿using Microsoft.AspNetCore.SignalR;
+using Project.Core.Entities.Common.User;
 
 namespace Project.App.Hubs
 {
     public class SignalRHub : Hub<IStreamingHub>
     {
-        private readonly List<StreamingUser> _Users;
-        private readonly List<UserCall> _UserCalls;
-        private readonly List<CallOffer> _CallOffers;
+        private readonly List<SignalRUser> _Users;
+        private readonly List<SignalRUserCall> _SignalRUserCalls;
+        private readonly List<SignalRUserOffer> _SignalRUserOffers;
+        private readonly SignalRHubService _signalRHubService;
 
-        public SignalRHub(List<StreamingUser> users, List<UserCall> userCalls, List<CallOffer> callOffers)
+        public SignalRHub(List<SignalRUser> users, List<SignalRUserCall> SignalRUserCalls, List<SignalRUserOffer> SignalRUserOffers, SignalRHubService signalRHubService)
         {
             _Users = users;
-            _UserCalls = userCalls;
-            _CallOffers = callOffers;
+            _SignalRUserCalls = SignalRUserCalls;
+            _SignalRUserOffers = SignalRUserOffers;
+            _signalRHubService = signalRHubService;
         }
 
         public async Task Join(string username)
         {
             // Add the new user
-            _Users.Add(new StreamingUser
+            _Users.Add(new SignalRUser
             {
                 Username = username,
                 ConnectionId = Context.ConnectionId
@@ -26,6 +29,12 @@ namespace Project.App.Hubs
 
             // Send down the new list to all clients
             await SendUserListUpdate();
+        }
+        public override async Task OnConnectedAsync()
+        {
+            var userId = Context.User.Identity.Name;
+            _signalRHubService.AddMapping(userId, Context.ConnectionId);
+            await base.OnConnectedAsync();
         }
 
         public override async Task OnDisconnectedAsync(Exception exception)
@@ -42,7 +51,7 @@ namespace Project.App.Hubs
             await base.OnDisconnectedAsync(exception);
         }
 
-        public async Task CallUser(StreamingUser targetConnectionId)
+        public async Task CallUser(SignalRUser targetConnectionId)
         {
             var callingUser = _Users.SingleOrDefault(u => u.ConnectionId == Context.ConnectionId);
             var targetUser = _Users.SingleOrDefault(u => u.ConnectionId == targetConnectionId.ConnectionId);
@@ -56,7 +65,7 @@ namespace Project.App.Hubs
             }
 
             // And that they aren't already in a call
-            if (GetUserCall(targetUser.ConnectionId) != null)
+            if (GetSignalRUserCall(targetUser.ConnectionId) != null)
             {
                 await Clients.Caller.CallDeclined(targetConnectionId, string.Format("{0} is already in a call.", targetUser.Username));
                 return;
@@ -66,14 +75,14 @@ namespace Project.App.Hubs
             await Clients.Client(targetConnectionId.ConnectionId).IncomingCall(callingUser);
 
             // Create an offer
-            _CallOffers.Add(new CallOffer
+            _SignalRUserOffers.Add(new SignalRUserOffer
             {
                 Caller = callingUser,
                 Callee = targetUser
             });
         }
 
-        public async Task AnswerCall(bool acceptCall, StreamingUser targetConnectionId)
+        public async Task AnswerCall(bool acceptCall, SignalRUser targetConnectionId)
         {
             var callingUser = _Users.SingleOrDefault(u => u.ConnectionId == Context.ConnectionId);
             var targetUser = _Users.SingleOrDefault(u => u.ConnectionId == targetConnectionId.ConnectionId);
@@ -100,7 +109,7 @@ namespace Project.App.Hubs
             }
 
             // Make sure there is still an active offer.  If there isn't, then the other use hung up before the Callee answered.
-            var offerCount = _CallOffers.RemoveAll(c => c.Callee.ConnectionId == callingUser.ConnectionId
+            var offerCount = _SignalRUserOffers.RemoveAll(c => c.Callee.ConnectionId == callingUser.ConnectionId
                                                   && c.Caller.ConnectionId == targetUser.ConnectionId);
             if (offerCount < 1)
             {
@@ -109,7 +118,7 @@ namespace Project.App.Hubs
             }
 
             // And finally... make sure the user hasn't accepted another call already
-            if (GetUserCall(targetUser.ConnectionId) != null)
+            if (GetSignalRUserCall(targetUser.ConnectionId) != null)
             {
                 // And that they aren't already in a call
                 await Clients.Caller.CallDeclined(targetConnectionId, string.Format("{0} chose to accept someone elses call instead of yours :(", targetUser.Username));
@@ -117,12 +126,12 @@ namespace Project.App.Hubs
             }
 
             // Remove all the other offers for the call initiator, in case they have multiple calls out
-            _CallOffers.RemoveAll(c => c.Caller.ConnectionId == targetUser.ConnectionId);
+            _SignalRUserOffers.RemoveAll(c => c.Caller.ConnectionId == targetUser.ConnectionId);
 
             // Create a new call to match these folks up
-            _UserCalls.Add(new UserCall
+            _SignalRUserCalls.Add(new SignalRUserCall
             {
-                Users = new List<StreamingUser> { callingUser, targetUser }
+                Users = new List<SignalRUser> { callingUser, targetUser }
             });
 
             // Tell the original caller that the call was accepted
@@ -141,7 +150,7 @@ namespace Project.App.Hubs
                 return;
             }
 
-            var currentCall = GetUserCall(callingUser.ConnectionId);
+            var currentCall = GetSignalRUserCall(callingUser.ConnectionId);
 
             // Send a hang up message to each user in the call, if there is one
             if (currentCall != null)
@@ -156,12 +165,12 @@ namespace Project.App.Hubs
                 currentCall.Users.RemoveAll(u => u.ConnectionId == callingUser.ConnectionId);
                 if (currentCall.Users.Count < 2)
                 {
-                    _UserCalls.Remove(currentCall);
+                    _SignalRUserCalls.Remove(currentCall);
                 }
             }
 
             // Remove all offers initiating from the caller
-            _CallOffers.RemoveAll(c => c.Caller.ConnectionId == callingUser.ConnectionId);
+            _SignalRUserOffers.RemoveAll(c => c.Caller.ConnectionId == callingUser.ConnectionId);
 
             await SendUserListUpdate();
         }
@@ -179,10 +188,10 @@ namespace Project.App.Hubs
             }
 
             // Make sure that the person sending the signal is in a call
-            var userCall = GetUserCall(callingUser.ConnectionId);
+            var SignalRUserCall = GetSignalRUserCall(callingUser.ConnectionId);
 
             // ...and that the target is the one they are in a call with
-            if (userCall != null && userCall.Users.Exists(u => u.ConnectionId == targetUser.ConnectionId))
+            if (SignalRUserCall != null && SignalRUserCall.Users.Exists(u => u.ConnectionId == targetUser.ConnectionId))
             {
                 // These folks are in a call together, let's let em talk WebRTC
                 await Clients.Client(targetConnectionId).ReceiveSignal(callingUser, signal);
@@ -193,44 +202,112 @@ namespace Project.App.Hubs
 
         private async Task SendUserListUpdate()
         {
-            _Users.ForEach(u => u.InCall = (GetUserCall(u.ConnectionId) != null));
+            _Users.ForEach(u => u.InCall = (GetSignalRUserCall(u.ConnectionId) != null));
             await Clients.All.UpdateUserList(_Users);
         }
 
-        private UserCall GetUserCall(string connectionId)
+        private SignalRUserCall GetSignalRUserCall(string connectionId)
         {
             var matchingCall =
-                _UserCalls.SingleOrDefault(uc => uc.Users.SingleOrDefault(u => u.ConnectionId == connectionId) != null);
+                _SignalRUserCalls.SingleOrDefault(uc => uc.Users.SingleOrDefault(u => u.ConnectionId == connectionId) != null);
             return matchingCall;
         }
 
         #endregion
+
     }
     public interface IStreamingHub
     {
-        Task UpdateUserList(List<StreamingUser> userList);
-        Task CallAccepted(StreamingUser acceptingUser);
-        Task CallDeclined(StreamingUser decliningUser, string reason);
-        Task IncomingCall(StreamingUser callingUser);
-        Task ReceiveSignal(StreamingUser signalingUser, string signal);
-        Task CallEnded(StreamingUser signalingUser, string signal);
+        Task UpdateUserList(List<SignalRUser> userList);
+        Task CallAccepted(SignalRUser acceptingUser);
+        Task CallDeclined(SignalRUser decliningUser, string reason);
+        Task IncomingCall(SignalRUser callingUser);
+        Task ReceiveSignal(SignalRUser signalingUser, string signal);
+        Task CallEnded(SignalRUser signalingUser, string signal);
+        Task ReceiveMessage(string user, params object[] args);
     }
-    public class CallOffer
+    public class SignalRUserOffer
     {
-        public StreamingUser Caller { get; set; }
-        public StreamingUser Callee { get; set; }
+        public SignalRUser Caller { get; set; }
+        public SignalRUser Callee { get; set; }
     }
 
-    public class StreamingUser
+    public class SignalRUser
     {
         public string Username { get; set; }
         public string ConnectionId { get; set; }
         public bool InCall { get; set; }
     }
 
-    public class UserCall
+    public class SignalRUserCall
     {
-        public List<StreamingUser> Users { get; set; }
+        public List<SignalRUser> Users { get; set; }
+    }
+
+    public class SignalRHubService
+    {
+        private readonly Dictionary<string, Dictionary<string, string>> _userConnections = new Dictionary<string, Dictionary<string, string>>();
+
+        private readonly IHubContext<SignalRHub> _hubContext;
+        public SignalRHubService(IHubContext<SignalRHub> hubContext)
+        {
+            _hubContext = hubContext;
+        }
+
+        public void AddMapping(string userId, string connectionId)
+        {
+            if (!_userConnections.TryGetValue(userId, out var connections))
+            {
+                connections = new Dictionary<string, string>();
+                _userConnections[userId] = connections;
+            }
+
+            connections[connectionId] = connectionId;
+        }
+
+        public void RemoveMapping(string userId, string connectionId)
+        {
+            if (_userConnections.TryGetValue(userId, out var connections))
+            {
+                connections.Remove(connectionId);
+
+                // Remove the user entry if there are no connections left
+                if (connections.Count == 0)
+                {
+                    _userConnections.Remove(userId);
+                }
+            }
+        }
+
+        public bool IsUserConnected(string userId)
+        {
+            return _userConnections.ContainsKey(userId);
+        }
+
+        public IEnumerable<string> GetConnectionIds(string userId)
+        {
+            return _userConnections.TryGetValue(userId, out var connections)
+                ? connections.Values
+                : Enumerable.Empty<string>();
+        }
+
+        public async Task InvokeHubMethod(string methodName, params object[] args)
+        {
+            if (_hubContext != null)
+            {
+                await _hubContext.Clients.All.SendAsync(methodName, args);
+            }
+        }
+
+        public async Task InvokeHubMethod(string userId, string methodName, params object[] args)
+        {
+            var connectionId = GetConnectionIds(userId);
+
+            if (connectionId != null)
+            {
+                await _hubContext.Clients.Clients(connectionId).SendAsync(methodName, args);
+            }
+        }
     }
 
 }

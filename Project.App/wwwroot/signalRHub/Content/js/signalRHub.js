@@ -397,6 +397,11 @@ wsconn.on('callEnded', (signalingUser, signal) => {
     $("#callstatus").text('Idle');
 });
 
+// Logout
+wsconn.on('Logout', (signalingUser, args) => {
+    window.location.replace("/Account/Logout");
+});
+
 const initializeSignalR = () => {
     wsconn.start().then(() => { console.log("SignalR: Connected"); askUsername(); }).catch(err => console.log(err));
 };

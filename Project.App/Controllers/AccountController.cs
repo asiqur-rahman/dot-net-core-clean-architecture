@@ -1,6 +1,7 @@
 ﻿using Microsoft.AspNetCore.Authentication;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.Extensions.Options;
+using Project.App.Hubs;
 using Project.Core.Config;
 using Project.Core.Entities.Common.Account.Dtos;
 using Project.Core.Entities.Common.Security;
@@ -13,14 +14,14 @@ namespace Project.App.Controllers
     {
         public readonly IConfiguration _configuration;
         public readonly AppSettings _appSettings;
-        //private readonly SignalRHubService _signalRHubService;
+        private readonly SignalRHubService _signalRHubService;
         public AccountController(IConfiguration configuration, IOptions<AppSettings> appSettings
-            //, SignalRHubService signalRHubService
+            , SignalRHubService signalRHubService
             )
         {
             _configuration = configuration;
             _appSettings = appSettings.Value;
-            //_signalRHubService = signalRHubService;
+            _signalRHubService = signalRHubService;
         }
 
         public IActionResult Login()
@@ -50,10 +51,10 @@ namespace Project.App.Controllers
             UserPrincipal cookiesData = new UserPrincipal();
             cookiesData.Username = model.Username;
             HttpContext.Session.SetString("UserSessionData", JsonSerializer.Serialize(cookiesData));
-            //if (_signalRHubService.IsUserConnected(model.Username))
-            //{
-            //    await _signalRHubService.InvokeHubMethod(model.Username, "LogOut");
-            //}
+            if (_signalRHubService.IsUserConnected(model.Username))
+            {
+                await _signalRHubService.InvokeHubMethod(model.Username, "LogOut");
+            }
             return RedirectPermanent(returnUrl);
         }
 

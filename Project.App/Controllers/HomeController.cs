@@ -1,9 +1,11 @@
-﻿using Microsoft.AspNetCore.Mvc;
+﻿using Microsoft.AspNetCore.Authorization;
+using Microsoft.AspNetCore.Mvc;
 using Project.App.Models;
 using System.Diagnostics;
 
 namespace Project.App.Controllers
 {
+    [Authorize]
     public class HomeController : Controller
     {
         private readonly ILogger<HomeController> _logger;
@@ -18,11 +20,12 @@ namespace Project.App.Controllers
             return View();
         }
 
+        [HttpGet()]
         public IActionResult Privacy()
         {
             return View();
         }
-        [HttpGet(Name ="HomeStreaming")]
+        [HttpGet()]
         public IActionResult Streaming()
         {
             return View();

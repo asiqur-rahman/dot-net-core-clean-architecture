@@ -10,9 +10,10 @@ namespace Project.App.Extensions
             services.TryAddSingleton<IHttpContextAccessor, HttpContextAccessor>();
 
             #region Program
-            services.AddSingleton<List<StreamingUser>>();
-            services.AddSingleton<List<UserCall>>();
-            services.AddSingleton<List<CallOffer>>();
+            services.AddSingleton<List<SignalRUser>>();
+            services.AddSingleton<List<SignalRUserCall>>();
+            services.AddSingleton<List<SignalRUserOffer>>();
+            services.AddSingleton<SignalRHubService>();
             #endregion
 
             //#region Repositories

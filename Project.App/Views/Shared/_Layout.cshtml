@@ -26,7 +26,7 @@
 </head>
 
 <body data-mode="idle">
-    @* @Html.Hidden("Username", UserSessionData.Username, new { id = "username" }) *@
+    @Html.Hidden("Username", UserSessionData.Username, new { id = "username" })
     <!-- loader Start -->
     <div id="loading">
         <div id="loading-center">
@@ -472,7 +472,7 @@
                             <a href="#" class="search-toggle iq-waves-effect d-flex align-items-center">
                                 <img src="~/images/user/1.jpg" class="img-fluid rounded mr-3" alt="user">
                                 <div class="caption">
-                                    <h6 class="mb-0 line-height">Username</h6>
+                                    <h6 class="mb-0 line-height">@UserSessionData.Username</h6>
                                     <p class="mb-0">Manager</p>
                                 </div>
                             </a>
@@ -643,10 +643,16 @@
     <script src="~/js/style-customizer.js"></script>
     <!-- Chart Custom JavaScript -->
     <script src="~/js/chart-custom.js"></script>
+    <!-- SignalR -->
+    <script src="~/js/signalr/dist/browser/signalr.min.js"></script>
+    <script src="~/signalRHub/lib/alertifyjs/build/alertify.min.js"></script>
+    <script src="~/signalRHub/Content/js/utilsRTC.js"></script>
+    <script src="~/signalRHub/Content/js/constWebRTC.js"></script>
+    <script src="~/signalRHub/lib/adapter/adapter.min.js"></script>
+    <script src="~/signalRHub/Content/js/signalRHub.js" asp-append-version="true"></script>
     <!-- Custom JavaScript -->
     <script src="~/js/custom.js" asp-append-version="true"></script>
     <script src="~/js/app.js" asp-append-version="true"></script>
-    @* <script src="~/js/signalrHandler.js" asp-append-version="true"></script> *@
 
     <script>
         history.pushState(null, null, location.href);
