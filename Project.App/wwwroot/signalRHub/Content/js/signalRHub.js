@@ -323,7 +323,7 @@ wsconn.on('updateUserList', (userList) => {
         status = userList[index].inCall ? 'In Call' : 'Available';
 
         var listString = '<li class="list-group-item user" data-cid=' + userList[index].connectionId + ' data-username=' + userList[index].username + '>';
-        listString += '<a href="#"><div class="username"> ' + userList[index].username + '</div>';
+        listString += '<a href="#"><div class="username" style="color:black;"> ' + userList[index].username + '</div>';
         listString += '<span class="helper ' + userIcon + '" data-callstatus=' + userList[index].inCall + '></span></a></li>';
         $('#usersdata').append(listString);
     });
@@ -351,37 +351,45 @@ wsconn.on('callDeclined', (decliningUser, reason) => {
     $('body').attr('data-mode', 'idle');
 });
 
+let callingUserDetails = {};
 // Hub Callback: Incoming Call
 wsconn.on('incomingCall', (callingUser) => {
     console.log('SignalR: incoming call from: ' + JSON.stringify(callingUser));
-
-    // Ask if we want to talk
-    bootbox.confirm({
-        title: 'Calling !',
-        message: callingUser.username + ' is calling.  Do you want to talk?',
-        buttons: {
-            cancel: {
-                label: '<i class="fa fa-times"></i> No'
-            },
-            confirm: {
-                label: '<i class="fa fa-check"></i> Yes'
-            }
-        },
-        callback: function (result) {
-            if (result) {
-                // I want to chat
-                wsconn.invoke('AnswerCall', true, callingUser).catch(err => console.log(err));
-                $('body').attr('data-mode', 'incall');
-                $("#callstatus").text('In Call');
-            }
-            else {
-                // Go away, I don't want to chat with you
-                wsconn.invoke('AnswerCall', false, callingUser).catch(err => console.log(err));
-            }
-        }
-    });
+    $("#callingNumber").html(callingUser.username);
+    $("#callingCard").show();
+    callingUserDetails = callingUser;
+    //// Ask if we want to talk
+    //bootbox.confirm({
+    //    title: 'Calling !',
+    //    message: callingUser.username + ' is calling.  Do you want to talk?',
+    //    buttons: {
+    //        cancel: {
+    //            label: '<i class="fa fa-times"></i> No'
+    //        },
+    //        confirm: {
+    //            label: '<i class="fa fa-check"></i> Yes'
+    //        }
+    //    },
+    //    callback: function (result) {
+    //        if (result) {
+    //            // I want to chat
+    //            wsconn.invoke('AnswerCall', true, callingUser).catch(err => console.log(err));
+    //            $('body').attr('data-mode', 'incall');
+    //            $("#callstatus").text('In Call');
+    //        }
+    //        else {
+    //            // Go away, I don't want to chat with you
+    //            wsconn.invoke('AnswerCall', false, callingUser).catch(err => console.log(err));
+    //        }
+    //    }
+    //});
 
 });
+
+function answerCall(value = false) {
+    wsconn.invoke('AnswerCall', value, callingUserDetails).catch(err => console.log(err));
+    $("#callingCard").hide();
+}
 
 // Hub Callback: WebRTC Signal Received
 wsconn.on('receiveSignal', (signalingUser, signal) => {
@@ -448,7 +456,7 @@ const askUsername = () => {
 const generateRandomUsername = () => {
     consoleLogger('SignalR: Generating random username...');
     let username = 'User ' + Math.floor((Math.random() * 10000) + 1);
-    bootbox.alert('You really need a username, so we will call you... ' + username);
+    /*bootbox.alert('You really need a username, so we will call you... ' + username);*/
     setUsername(username);
 };
 
