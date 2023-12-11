@@ -24,7 +24,7 @@ $(document).ready(function () {
 
         // Make sure we are in a state where we can make a call
         if ($('body').attr("data-mode") !== "idle") {
-            alertify.error('Sorry, you are already in a call.  Conferencing is not yet implemented.');
+            bootbox.alert('Sorry, you are already in a call.  Conferencing is not yet implemented.');
             return;
         }
 
@@ -37,7 +37,7 @@ $(document).ready(function () {
             $('body').attr('data-mode', 'calling');
             $("#callstatus").text('Calling...');
         } else {
-            alertify.error("Ah, nope.  Can't call yourself.");
+            bootbox.alert("Ah, nope.  Can't call yourself.");
         }
     });
 
@@ -345,7 +345,7 @@ wsconn.on('callDeclined', (decliningUser, reason) => {
     console.log('SignalR: call declined from: ' + decliningUser.connectionId);
 
     // Let the user know that the callee declined to talk
-    alertify.error(reason);
+    bootbox.alert(reason);
 
     // Back to an idle UI
     $('body').attr('data-mode', 'idle');
@@ -356,19 +356,31 @@ wsconn.on('incomingCall', (callingUser) => {
     console.log('SignalR: incoming call from: ' + JSON.stringify(callingUser));
 
     // Ask if we want to talk
-    alertify.confirm(callingUser.username + ' is calling.  Do you want to chat?', function (e) {
-        if (e) {
-            // I want to chat
-            wsconn.invoke('AnswerCall', true, callingUser).catch(err => console.log(err));
-
-            // So lets go into call mode on the UI
-            $('body').attr('data-mode', 'incall');
-            $("#callstatus").text('In Call');
-        } else {
-            // Go away, I don't want to chat with you
-            wsconn.invoke('AnswerCall', false, callingUser).catch(err => console.log(err));
+    bootbox.confirm({
+        title: 'Calling !',
+        message: callingUser.username + ' is calling.  Do you want to talk?',
+        buttons: {
+            cancel: {
+                label: '<i class="fa fa-times"></i> No'
+            },
+            confirm: {
+                label: '<i class="fa fa-check"></i> Yes'
+            }
+        },
+        callback: function (result) {
+            if (result) {
+                // I want to chat
+                wsconn.invoke('AnswerCall', true, callingUser).catch(err => console.log(err));
+                $('body').attr('data-mode', 'incall');
+                $("#callstatus").text('In Call');
+            }
+            else {
+                // Go away, I don't want to chat with you
+                wsconn.invoke('AnswerCall', false, callingUser).catch(err => console.log(err));
+            }
         }
     });
+
 });
 
 // Hub Callback: WebRTC Signal Received
@@ -387,7 +399,7 @@ wsconn.on('callEnded', (signalingUser, signal) => {
     console.log('SignalR: call with ' + signalingUser.connectionId + ' has ended: ' + signal);
 
     // Let the user know why the server says the call is over
-    alertify.error(signal);
+    bootbox.alert(signal);
 
     // Close the WebRTC connection
     closeConnection(signalingUser.connectionId);
@@ -410,7 +422,7 @@ const setUsername = (username) => {
     consoleLogger('SingnalR: setting username...');
     wsconn.invoke("Join", username).catch((err) => {
         consoleLogger(err);
-        alertify.alert('<h4>Failed SignalR Connection</h4> We were not able to connect you to the signaling server.<br/><br/>Error: ' + JSON.stringify(err));
+        bootbox.alert('<h4>Failed SignalR Connection</h4> We were not able to connect you to the signaling server.<br/><br/>Error: ' + JSON.stringify(err));
         //viewModel.Loading(false);
     });
     //WOWZA_STREAM_NAME = username;
@@ -436,15 +448,15 @@ const askUsername = () => {
 const generateRandomUsername = () => {
     consoleLogger('SignalR: Generating random username...');
     let username = 'User ' + Math.floor((Math.random() * 10000) + 1);
-    alertify.success('You really need a username, so we will call you... ' + username);
+    bootbox.alert('You really need a username, so we will call you... ' + username);
     setUsername(username);
 };
 
 const errorHandler = (error) => {
     if (error.message)
-        alertify.alert('<h4>Error Occurred</h4></br>Error Info: ' + JSON.stringify(error.message));
+        bootbox.alert('<h4>Error Occurred</h4></br>Error Info: ' + JSON.stringify(error.message));
     else
-        alertify.alert('<h4>Error Occurred</h4></br>Error Info: ' + JSON.stringify(error));
+        bootbox.alert('<h4>Error Occurred</h4></br>Error Info: ' + JSON.stringify(error));
 
     consoleLogger(error);
 };

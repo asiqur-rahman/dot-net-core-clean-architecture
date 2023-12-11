@@ -39,11 +39,13 @@ namespace Project.App.Hubs
 
         public override async Task OnDisconnectedAsync(Exception exception)
         {
+            var userId = Context.User.Identity.Name;
             // Hang up any calls the user is in
             await HangUp(); // Gets the user from "Context" which is available in the whole hub
 
             // Remove the user
             _Users.RemoveAll(u => u.ConnectionId == Context.ConnectionId);
+            _signalRHubService.RemoveMapping(userId,Context.ConnectionId);
 
             // Send down the new user list to all clients
             await SendUserListUpdate();
@@ -224,8 +226,8 @@ namespace Project.App.Hubs
         Task IncomingCall(SignalRUser callingUser);
         Task ReceiveSignal(SignalRUser signalingUser, string signal);
         Task CallEnded(SignalRUser signalingUser, string signal);
-        Task ReceiveMessage(string user, params object[] args);
     }
+
     public class SignalRUserOffer
     {
         public SignalRUser Caller { get; set; }
