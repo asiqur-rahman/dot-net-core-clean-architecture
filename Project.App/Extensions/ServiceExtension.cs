@@ -1,4 +1,5 @@
 ﻿using Microsoft.Extensions.DependencyInjection.Extensions;
+using Project.App.Hubs;
 
 namespace Project.App.Extensions
 {
@@ -7,11 +8,12 @@ namespace Project.App.Extensions
         public static IServiceCollection RegisterService(this IServiceCollection services)
         {
             services.TryAddSingleton<IHttpContextAccessor, HttpContextAccessor>();
-            //#region Services
-            //services.AddScoped<IProductService, ProductService>();
-            //services.AddScoped<ICustomerService, CustomerService>();
 
-            //#endregion
+            #region Program
+            services.AddSingleton<List<StreamingUser>>();
+            services.AddSingleton<List<UserCall>>();
+            services.AddSingleton<List<CallOffer>>();
+            #endregion
 
             //#region Repositories
             //services.AddTransient<IProductRepository, ProductRepository>();

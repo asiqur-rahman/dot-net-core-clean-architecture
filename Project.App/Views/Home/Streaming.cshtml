@@ -1,21 +1,21 @@
 ﻿@section Css{
-    <link href="~/streamingHub/lib/alertifyjs/build/css/alertify.min.css" rel="stylesheet" />
-    <link href="~/streamingHub/lib/alertifyjs/build/css/themes/default.min.css" rel="stylesheet" />
-    <link href="~/streamingHub/Content/css/Custom.css" rel="stylesheet" />
+    <link href="~/signalRHub/lib/alertifyjs/build/css/alertify.min.css" rel="stylesheet" />
+    <link href="~/signalRHub/Content/css/Custom.css" rel="stylesheet" />
 }
 
 @{
     ViewBag.Title = "Home Page";
     Layout = "~/Views/Shared/_Layout.cshtml";
 }
-    <div class="bg-white box-shadow">
-            <div class="bg-light conn-type" style="font-size:medium;">
-                <button type="button" class="btn btn-dark">Connection Type <span class="badge badge-secondary">Audio</span></button>
-        <span class="navbar-text text-right">
-            <span id="upperUsername"></span>
-        </span>
-            </div>
-    </div>
+
+<div class="bg-white box-shadow">
+        <div class="bg-light conn-type" style="font-size:medium;">
+            <button type="button" class="btn btn-dark">Connection Type <span class="badge badge-secondary">Audio</span></button>
+            <span class="navbar-text text-right">
+                <span id="upperUsername"></span>
+            </span>
+        </div>
+</div>
 <div class="row-fluid">
     <div class="span3">
         <div class="card card-body bg-light actions">
@@ -46,12 +46,12 @@
 </div>
 
 @section Scripts{
-    <script src="~/streamingHub/lib/signalr/dist/browser/signalr.js"></script>
-    <script src="~/streamingHub/lib/alertifyjs/build/alertify.min.js"></script>
-    <script src="~/streamingHub/Content/js/utilsRTC.js"></script>
-    <script src="~/streamingHub/Content/js/constWebRTC.js"></script>
-    <script src="~/streamingHub/lib/adapter/adapter.min.js"></script>
-    <script src="~/streamingHub/Content/js/connectionHub.js"></script>
-    <script src="~/streamingHub/Content/js/Custom.js"></script>
+    <script src="~/js/signalr/dist/browser/signalr.js"></script>
+    <script src="~/js/signalr/dist/browser/signalr.min.js"></script>
+    <script src="~/signalRHub/lib/alertifyjs/build/alertify.min.js"></script>
+    <script src="~/signalRHub/Content/js/utilsRTC.js"></script>
+    <script src="~/signalRHub/Content/js/constWebRTC.js"></script>
+    <script src="~/signalRHub/lib/adapter/adapter.min.js"></script>
+    <script src="~/signalRHub/Content/js/signalRHub.js" asp-append-version="true"></script>
 }
 
