@@ -36,4 +36,9 @@
     <Folder Include="wwwroot\images\travel\" />
   </ItemGroup>
 
+  <ItemGroup>
+    <ProjectReference Include="..\Project.Core\Project.Core.csproj" />
+    <ProjectReference Include="..\Project.Infrasturcture\Project.Infrasturcture.csproj" />
+  </ItemGroup>
+
 </Project>

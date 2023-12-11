@@ -4,11 +4,11 @@ namespace Project.App.Hubs
 {
     public class ConnectionHub : Hub<IConnectionHub>
     {
-        private readonly List<User> _Users;
+        private readonly List<StreamingUser> _Users;
         private readonly List<UserCall> _UserCalls;
         private readonly List<CallOffer> _CallOffers;
 
-        public ConnectionHub(List<User> users, List<UserCall> userCalls, List<CallOffer> callOffers)
+        public ConnectionHub(List<StreamingUser> users, List<UserCall> userCalls, List<CallOffer> callOffers)
         {
             _Users = users;
             _UserCalls = userCalls;
@@ -18,7 +18,7 @@ namespace Project.App.Hubs
         public async Task Join(string username)
         {
             // Add the new user
-            _Users.Add(new User
+            _Users.Add(new StreamingUser
             {
                 Username = username,
                 ConnectionId = Context.ConnectionId
@@ -42,7 +42,7 @@ namespace Project.App.Hubs
             await base.OnDisconnectedAsync(exception);
         }
 
-        public async Task CallUser(User targetConnectionId)
+        public async Task CallUser(StreamingUser targetConnectionId)
         {
             var callingUser = _Users.SingleOrDefault(u => u.ConnectionId == Context.ConnectionId);
             var targetUser = _Users.SingleOrDefault(u => u.ConnectionId == targetConnectionId.ConnectionId);
@@ -73,7 +73,7 @@ namespace Project.App.Hubs
             });
         }
 
-        public async Task AnswerCall(bool acceptCall, User targetConnectionId)
+        public async Task AnswerCall(bool acceptCall, StreamingUser targetConnectionId)
         {
             var callingUser = _Users.SingleOrDefault(u => u.ConnectionId == Context.ConnectionId);
             var targetUser = _Users.SingleOrDefault(u => u.ConnectionId == targetConnectionId.ConnectionId);
@@ -122,7 +122,7 @@ namespace Project.App.Hubs
             // Create a new call to match these folks up
             _UserCalls.Add(new UserCall
             {
-                Users = new List<User> { callingUser, targetUser }
+                Users = new List<StreamingUser> { callingUser, targetUser }
             });
 
             // Tell the original caller that the call was accepted
@@ -208,20 +208,20 @@ namespace Project.App.Hubs
     }
     public interface IConnectionHub
     {
-        Task UpdateUserList(List<User> userList);
-        Task CallAccepted(User acceptingUser);
-        Task CallDeclined(User decliningUser, string reason);
-        Task IncomingCall(User callingUser);
-        Task ReceiveSignal(User signalingUser, string signal);
-        Task CallEnded(User signalingUser, string signal);
+        Task UpdateUserList(List<StreamingUser> userList);
+        Task CallAccepted(StreamingUser acceptingUser);
+        Task CallDeclined(StreamingUser decliningUser, string reason);
+        Task IncomingCall(StreamingUser callingUser);
+        Task ReceiveSignal(StreamingUser signalingUser, string signal);
+        Task CallEnded(StreamingUser signalingUser, string signal);
     }
     public class CallOffer
     {
-        public User Caller { get; set; }
-        public User Callee { get; set; }
+        public StreamingUser Caller { get; set; }
+        public StreamingUser Callee { get; set; }
     }
 
-    public class User
+    public class StreamingUser
     {
         public string Username { get; set; }
         public string ConnectionId { get; set; }
@@ -230,7 +230,7 @@ namespace Project.App.Hubs
 
     public class UserCall
     {
-        public List<User> Users { get; set; }
+        public List<StreamingUser> Users { get; set; }
     }
 
 }

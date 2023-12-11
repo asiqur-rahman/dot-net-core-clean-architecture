@@ -8,24 +8,14 @@
     ViewBag.Title = "Home Page";
     Layout = "~/Views/Shared/_Layout.cshtml";
 }
-<header>
-    <nav class="navbar navbar-expand-sm navbar-toggleable-sm navbar-light bg-white border-bottom box-shadow mb-3">
-        <div class="container">
-            <a class="navbar-brand" asp-area="" asp-controller="Home" asp-action="Index">WebRTC Audio Caller</a>
-            @*<span id="loadingSpinner" class="glyphicon glyphicon-repeat fast-right-spinner"></span>*@
-
-            <div class="collapse navbar-collapse">
-                <span class="navbar-text text-right">
-                    You are <span id="upperUsername"></span>
-                </span>
+    <div class="bg-white box-shadow">
+            <div class="bg-light conn-type" style="font-size:medium;">
+                <button type="button" class="btn btn-dark">Connection Type <span class="badge badge-secondary">Audio</span></button>
+        <span class="navbar-text text-right">
+            <span id="upperUsername"></span>
+        </span>
             </div>
-            <button class="navbar-toggler" type="button" data-toggle="collapse" data-target=".navbar-collapse" aria-controls="navbarSupportedContent"
-                    aria-expanded="false" aria-label="Toggle navigation">
-                <span class="navbar-toggler-icon"></span>
-            </button>
-        </div>
-    </nav>
-</header>
+    </div>
 <div class="row-fluid">
     <div class="span3">
         <div class="card card-body bg-light actions">
@@ -43,14 +33,12 @@
                 </li>
             </ul>
         </div>
-        <div class="card card-body bg-light conn-type">
-            <button type="button" class="btn btn-dark">Connection Type <span class="badge badge-secondary">Audio</span></button>
-        </div>
+        
     </div>
-    <div class="span9">
+    <div class="span9 mt-3" style="text-align:center;">
         <div class="row-fluid">
             <div class="span6">
-                <h4>Partner</h4>
+                <h5>Partner</h5>
                 <audio class="audio partner" autoplay="" controls=""></audio>
             </div>
         </div>

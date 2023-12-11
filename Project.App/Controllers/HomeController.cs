@@ -13,7 +13,7 @@ namespace Project.App.Controllers
             _logger = logger;
         }
 
-        public IActionResult Index()
+        public IActionResult Dashboard()
         {
             return View();
         }
@@ -22,7 +22,7 @@ namespace Project.App.Controllers
         {
             return View();
         }
-
+        [HttpGet(Name ="HomeStreaming")]
         public IActionResult Streaming()
         {
             return View();
