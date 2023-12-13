@@ -1,8 +1,10 @@
-﻿using Microsoft.AspNetCore.SignalR;
+﻿using Microsoft.AspNetCore.Authorization;
+using Microsoft.AspNetCore.SignalR;
 using Project.Core.Entities.Common.User;
 
 namespace Project.App.Hubs
 {
+    [Authorize]
     public class SignalRHub : Hub<IStreamingHub>
     {
         private readonly List<SignalRUser> _Users;
