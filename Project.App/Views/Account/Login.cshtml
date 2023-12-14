@@ -5,30 +5,49 @@
     Layout = "~/Views/Shared/_AccountLayout.cshtml";
 }
 
-<div class="col-md-5 bg-white sign-in-page-data">
-    <div class="sign-in-from" style="margin-top:5%">
-        <h1 class="mb-0 text-center">Sign in</h1>
-        <p class="text-center text-dark">Enter your credentials to access.</p>
-        <form class="mt-4" method="post">
-            <div class="form-group">
-                <label for="exampleInputEmail1">Email address</label>
-                <input type="text" asp-for="Username" class="form-control mb-0" placeholder="Enter email" value="user">
+<div class="col-auto bg-100 dark__bg-1100 rounded-3 position-relative overflow-hidden auth-title-box">
+    <div class="bg-holder" style="background-image:url(../../../assets/img/bg/38.png);"></div>
+    <!--/.bg-holder-->
+    <div class="position-relative px-4 px-lg-7 pt-7 pb-7 pb-sm-5 text-center text-md-start pb-lg-7 pb-md-7">
+        <h3 class="mb-3 text-black fs-1">Phoenix Authentication</h3>
+        <p class="text-700">Give yourself some hassle-free development process with the uniqueness of Phoenix!</p>
+        <ul class="list-unstyled mb-0 w-max-content w-md-auto mx-auto">
+            <li class="d-flex align-items-center"><span class="uil uil-check-circle text-success me-2"></span><span class="text-700 fw-semi-bold">Fast</span></li>
+            <li class="d-flex align-items-center"><span class="uil uil-check-circle text-success me-2"></span><span class="text-700 fw-semi-bold">Simple</span></li>
+            <li class="d-flex align-items-center"><span class="uil uil-check-circle text-success me-2"></span><span class="text-700 fw-semi-bold">Responsive</span></li>
+        </ul>
+    </div>
+    <div class="position-relative z-index--1 mb-6 d-none d-md-block text-center mt-md-15"><img class="auth-title-box-img d-dark-none" src="../../../assets/img/spot-illustrations/auth.png" alt=""><img class="auth-title-box-img d-light-none" src="../../../assets/img/spot-illustrations/auth-dark.png" alt=""></div>
+</div>
+<div class="col mx-auto">
+    <div class="auth-form-box">
+        <div class="text-center mb-7">
+            <a class="d-flex flex-center text-decoration-none mb-4" href="../../../index.html">
+                <div class="d-flex align-items-center fw-bolder fs-5 d-inline-block"><img src="../../../assets/img/icons/logo.png" alt="phoenix" width="58"></div>
+            </a>
+            <h3 class="text-1000">Sign In</h3>
+            <p class="text-700">Get access to your account</p>
+        </div><button class="btn btn-phoenix-secondary w-100 mb-3"><span class="fab fa-google text-danger me-2 fs--1"></span>Sign in with google</button><button class="btn btn-phoenix-secondary w-100"><span class="fab fa-facebook text-primary me-2 fs--1"></span>Sign in with facebook</button>
+        <div class="position-relative">
+            <hr class="bg-200 mt-5 mb-4">
+            <div class="divider-content-center bg-white">or use email</div>
+        </div>
+        <form method="post">
+            <div class="mb-3 text-start">
+                <label class="form-label" for="email">Username</label>
+                <div class="form-icon-container"><input class="form-control form-icon-input" asp-for="Username" id="email" type="text" placeholder="Username"><span class="fas fa-user text-900 fs--1 form-icon"></span></div>
             </div>
-            <div class="form-group">
-                <label for="exampleInputPassword1">Password</label>
-                <a href="~/#" class="float-right">Forgot password?</a>
-                <input type="password" asp-for="Password" class="form-control mb-0" placeholder="Password" value="pass">
+            <div class="mb-3 text-start">
+                <label class="form-label" for="password">Password</label>
+                <div class="form-icon-container"><input class="form-control form-icon-input" asp-for="Password" id="password" type="password" placeholder="Password"><span class="fas fa-key text-900 fs--1 form-icon"></span></div>
             </div>
-            <div class="d-inline-block w-100">
-                <div class="custom-control custom-checkbox d-inline-block mt-2 pt-1">
-                    <input type="checkbox" class="custom-control-input" id="customCheck1">
-                    <label class="custom-control-label" for="customCheck1">Remember Me</label>
+            <div class="row flex-between-center mb-7">
+                <div class="col-auto">
+                    <div class="form-check mb-0"><input class="form-check-input" id="basic-checkbox" type="checkbox" checked="checked"><label class="form-check-label mb-0" for="basic-checkbox">Remember me</label></div>
                 </div>
-            </div>
-            <div class="sign-info text-center">
-                <button type="submit" class="btn btn-primary d-block w-100 mb-2">Sign in</button>
-                @* <span class="text-dark dark-color d-inline-block line-height-2">Don't have an account? <a href="~/#">Sign up</a></span> *@
-            </div>
+                <div class="col-auto"><a class="fs--1 fw-semi-bold" href="forgot-password.html">Forgot Password?</a></div>
+            </div><button type="submit" class="btn btn-primary w-100 mb-3">Sign In</button>
         </form>
+        <div class="text-center"><a class="fs--1 fw-bold" href="sign-up.html">Create an account</a></div>
     </div>
 </div>

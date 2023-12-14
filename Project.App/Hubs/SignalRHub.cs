@@ -235,7 +235,6 @@ namespace Project.App.Hubs
         public SignalRUser Caller { get; set; }
         public SignalRUser Callee { get; set; }
     }
-    dd
     public class SignalRUser
     {
         public string Username { get; set; }
