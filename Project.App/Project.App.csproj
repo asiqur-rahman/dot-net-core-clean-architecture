@@ -14,6 +14,10 @@
   </ItemGroup>
 
   <ItemGroup>
+    <None Remove="Views\Partial\y5vysllq.jom~" />
+  </ItemGroup>
+
+  <ItemGroup>
     <None Include="wwwroot\assets\data\usa.js" />
     <None Include="wwwroot\assets\data\world.js" />
     <None Include="wwwroot\assets\img\icons\cloud-upload.svg" />
