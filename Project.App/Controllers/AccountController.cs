@@ -5,6 +5,7 @@ using Project.App.Hubs;
 using Project.Core.Config;
 using Project.Core.Entities.Common.Account.Dtos;
 using Project.Core.Entities.Common.Security;
+using Serilog;
 using System.Security.Claims;
 using System.Text.Json;
 
@@ -26,6 +27,11 @@ namespace Project.App.Controllers
 
         public IActionResult Login()
         {
+            Log.Debug("Account Controller View !");
+            Log.Information("Account Controller View !");
+            Log.Warning("Account Controller View !");
+            Log.Error("Account Controller View !");
+            Log.Fatal("Account Controller View !");
             return View();
         }
 

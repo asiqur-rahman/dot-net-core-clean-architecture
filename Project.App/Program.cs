@@ -1,11 +1,21 @@
+using Microsoft.AspNetCore.Authentication;
+using Microsoft.AspNetCore.Hosting;
 using Microsoft.EntityFrameworkCore;
 using Project.App.Extensions;
+using Project.App.Handler;
 using Project.App.Hubs;
 using Project.Core.Config;
 using Project.Infrasturcture.Data;
+using Sejil;
+using Sejil.Configuration.Internal;
+using Serilog.Events;
 
 var builder = WebApplication.CreateBuilder(args);
 var cookieName = builder.Configuration.GetValue<string>("AppSettings:Cookie:Name");
+
+// Add services to the container.
+//builder.Services.AddAuthentication("SejilAuthentication")
+//    .AddScheme<AuthenticationSchemeOptions, SejilAuthenticationHandler>("SejilAuthentication", null);
 
 builder.Services.AddDbContext<ApplicationDbContext>(options =>
 {
@@ -15,6 +25,23 @@ builder.Services.AddDbContext<ApplicationDbContext>(options =>
 builder.Services.AddDbContext<MessagingDbContext>(options =>
 {
     options.UseSqlServer(builder.Configuration.GetConnectionString("MessagingMsSqlConnection"));
+});
+
+// Configure App Configuration
+builder.Host.ConfigureAppConfiguration((hostingContext, config) =>
+{
+    config.SetBasePath(hostingContext.HostingEnvironment.ContentRootPath);
+
+    var appEnv = config.Build().GetValue<string>("EnvSettings:Environment");
+
+    if (string.IsNullOrEmpty(appEnv))
+    {
+        config.AddJsonFile("appsettings.json", optional: false);
+    }
+    else
+    {
+        config.AddJsonFile($"appsettings.{appEnv}.json", optional: false);
+    }
 });
 
 // Add services to the container.
@@ -55,6 +82,13 @@ builder.Services.AddSession();
 builder.Services.RegisterService();
 
 
+builder.Host.UseSejil("/app-log");
+builder.Services.ConfigureSejil(options =>
+{
+    options.Title = "Application Logs";
+    //options.AuthenticationScheme = "SejilAuthentication";
+});
+
 var app = builder.Build();
 
 // Configure the HTTP request pipeline.
@@ -67,7 +101,8 @@ if (!app.Environment.IsDevelopment())
 app.UseHttpsRedirection();
 app.UseStaticFiles();
 
-app.UseSession();  // Add this line before other middleware
+// Add this line before other middleware
+app.UseSession();  
 app.UseHttpsRedirection();
 app.UseStaticFiles();
 
@@ -75,6 +110,8 @@ app.UseRouting();
 
 app.UseAuthentication();
 app.UseAuthorization();
+
+app.UseSejil();
 
 app.MapRazorPages();
 
@@ -95,3 +132,4 @@ app.UseEndpoints(endpoints =>
 });
 
 app.Run();
+
