@@ -83,6 +83,7 @@ artifacts/
 *.svclog
 *.scc
 /logs
+/Logs
 # Chutzpah Test files
 _Chutzpah*
 

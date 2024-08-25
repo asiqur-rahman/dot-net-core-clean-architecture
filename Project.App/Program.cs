@@ -8,6 +8,7 @@ using Project.Core.Config;
 using Project.Infrasturcture.Data;
 using Sejil;
 using Sejil.Configuration.Internal;
+using Serilog;
 using Serilog.Events;
 
 var builder = WebApplication.CreateBuilder(args);
@@ -82,7 +83,14 @@ builder.Services.AddSession();
 builder.Services.RegisterService();
 
 
-builder.Host.UseSejil("/app-log");
+builder.Host
+    .UseSerilog((context, configuration) =>
+    {
+        //configuration.WriteTo.Console();
+        configuration.ReadFrom.Configuration(context.Configuration);
+    })
+    .UseSejil("/app-log");
+
 builder.Services.ConfigureSejil(options =>
 {
     options.Title = "Application Logs";
