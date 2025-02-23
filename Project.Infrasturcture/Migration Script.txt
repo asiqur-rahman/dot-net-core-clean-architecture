@@ -1,10 +1,10 @@
-Add-Migration "UtilityBill Table new field Status Added " -Context OracleDbContext -OutputDir Data/OracleMigrations -Project Com.DataSoft.EzyBanking.Infrastructure
-Update-Database -Context OracleDbContext -Project Com.DataSoft.EzyBanking.Infrastructure
-Remove-Migration -Context OracleDbContext -Project Com.DataSoft.EzyBanking.Infrastructure
+Add-Migration "UtilityBill Table new field Status Added " -Context OracleDbContext -OutputDir Data/OracleMigrations -Project Project.Infrastructure
+Update-Database -Context OracleDbContext -Project Project.Infrastructure
+Remove-Migration -Context OracleDbContext -Project Project.Infrastructure
 
-Add-Migration "UtilityBill Table new field Status Added" -Context MsSqlDbContext -OutputDir Data/MsSqlMigrations -Project Com.DataSoft.EzyBanking.Infrastructure
-Update-Database -Context MsSqlDbContext -Project Com.DataSoft.EzyBanking.Infrastructure
-Remove-Migration -Context MsSqlDbContext -Project Com.DataSoft.EzyBanking.Infrastructure
+Add-Migration "Initial -Context MsSqlDbContext -OutputDir Data/MsSqlMigrations -Project Project.Infrastructure
+Update-Database -Context MsSqlDbContext -Project Project.Infrastructure
+Remove-Migration -Context MsSqlDbContext -Project Project.Infrastructure
 
-script-Migration "NPSB Field Update" -Context OracleDbContext -OutputDir Data/OracleMigrations -Project Com.DataSoft.EzyBanking.Infrastructure -from "20220705085939_NPSB new Field Add Channel.cs" -to "20220705093801_NPSB Field Update.cs"
+script-Migration "NPSB Field Update" -Context OracleDbContext -OutputDir Data/OracleMigrations -Project Project.Infrastructure -from "20220705085939_NPSB new Field Add Channel.cs" -to "20220705093801_NPSB Field Update.cs"
 
