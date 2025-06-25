@@ -10,6 +10,7 @@ using Project.Core.Interfaces.Services.Common;
 using Serilog;
 using System.Data;
 using X.PagedList;
+using X.PagedList.Extensions;
 
 namespace Project.Application.Services.Common
 {
