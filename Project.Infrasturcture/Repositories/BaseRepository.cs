@@ -13,7 +13,6 @@ using Project.Common.Support;
 using Project.Core.Interfaces.Repositories;
 using X.PagedList;
 using Microsoft.Data.SqlClient;
-using System.Data.Entity.Infrastructure;
 using Project.Core.Exceptions;
 using Project.Core.Entities.Helper;
 

@@ -13,16 +13,12 @@ string routePrefix = builder.Configuration["AppSettings:ApiGlobalPrefix"];
 
 #region Add services to the container
 
-// The following code configures PascalCase formatting instead of the default camelCase formatting
+// PascalCase JSON formatting instead of the default camelCase
 builder.Services.AddControllers()
     .AddJsonOptions(options =>
     {
         options.JsonSerializerOptions.PropertyNamingPolicy = null;
     });
-
-
-
-// Learn more about configuring Swagger/OpenAPI at https://aka.ms/aspnetcore/swashbuckle
 
 builder.Services.AddSwaggerGen(c =>
 {
@@ -59,8 +55,6 @@ builder.Services.AddSwaggerGen(c =>
 });
 
 #region JWT Service
-
-//Configure JWT authentication at the time when the application starts. It specifies the authentication scheme as JwtBearer.
 builder.Services.AddAuthentication(options =>
 {
     options.DefaultAuthenticateScheme = JwtBearerDefaults.AuthenticationScheme;
@@ -81,32 +75,30 @@ builder.Services.AddAuthentication(options =>
     };
 });
 
-//To add authorization services to your application
 builder.Services.AddAuthorization();
 builder.Services.AddEndpointsApiExplorer();
 
-#endregion
+builder.Services.AddSingleton(new GlobalRoutePrefixMiddleware(routePrefix));
 
 #endregion
 
-var app = builder.Build(); //After configuring services and middleware, you call builder.Build() to build and finalize the application's configuration. This method creates an IServiceProvider that includes all the registered services and middleware configurations. The IServiceProvider is essential for dependency injection and handling requests in your application.
-                           //In summary, builder.Build() is an essential step to create the application's service provider and make all the configured services and middleware available to the application.
+#endregion
 
-app.UseMiddleware<GlobalRoutePrefixMiddleware>(routePrefix); // By that the middleware will prepend "/api" to the beginning of all incoming request URLs.
-app.UsePathBase(new PathString(routePrefix)); // By using app.UsePathBase(new PathString("/api")), essentially I am telling my application to prepend "/api" to the beginning of all route paths. This can be useful if I want to organize or version my API under a specific base path, such as "/api/v1," to distinguish it from other parts of my application.
+var app = builder.Build();
 
-// Configure the HTTP request pipeline.
+app.UseMiddleware<GlobalRoutePrefixMiddleware>();
+app.UsePathBase(new PathString(routePrefix));
+
 if (app.Environment.IsDevelopment())
 {
     app.UseSwagger();
     app.UseSwaggerUI(c =>
     {
-        c.RoutePrefix = "swagger"; // This sets the URL path for accessing Swagger UI
+        c.RoutePrefix = "swagger";
         c.DocumentTitle = "Clean Project API";
         c.SwaggerEndpoint("/swagger/v1/swagger.json", "Clean Project API");
     });
 }
-
 
 app.UseHttpsRedirection();
 
@@ -119,14 +111,11 @@ app.UseAuthorization();
 
 app.UseEndpoints(endpoints =>
 {
-    // Your other endpoint configurations
     endpoints.MapControllers();
-    // Configure a custom route for Swagger UI
     endpoints.MapGet("/", async context =>
     {
-        context.Response.Redirect("/swagger"); // Redirect to the default Swagger route
+        context.Response.Redirect("/swagger");
     });
 });
-
 
 app.Run();

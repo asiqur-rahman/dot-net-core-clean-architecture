@@ -14,7 +14,6 @@ using Serilog.Events;
 var builder = WebApplication.CreateBuilder(args);
 var cookieName = builder.Configuration.GetValue<string>("AppSettings:Cookie:Name");
 
-// Add services to the container.
 //builder.Services.AddAuthentication("SejilAuthentication")
 //    .AddScheme<AuthenticationSchemeOptions, SejilAuthenticationHandler>("SejilAuthentication", null);
 
@@ -28,7 +27,6 @@ builder.Services.AddDbContext<MessagingDbContext>(options =>
     options.UseSqlServer(builder.Configuration.GetConnectionString("MessagingMsSqlConnection"));
 });
 
-// Configure App Configuration
 builder.Host.ConfigureAppConfiguration((hostingContext, config) =>
 {
     config.SetBasePath(hostingContext.HostingEnvironment.ContentRootPath);
@@ -45,8 +43,7 @@ builder.Host.ConfigureAppConfiguration((hostingContext, config) =>
     }
 });
 
-// Add services to the container.
-builder.Services.AddControllersWithViews(); // is used for controllers that serve both API endpoints and HTML views. This allows you to generate HTML content in addition to handling API requests.
+builder.Services.AddControllersWithViews();
 
 builder.Services.AddAuthentication(options =>
 {
@@ -99,7 +96,6 @@ builder.Services.ConfigureSejil(options =>
 
 var app = builder.Build();
 
-// Configure the HTTP request pipeline.
 if (!app.Environment.IsDevelopment())
 {
     app.UseExceptionHandler("/Home/Error");
@@ -109,8 +105,7 @@ if (!app.Environment.IsDevelopment())
 app.UseHttpsRedirection();
 app.UseStaticFiles();
 
-// Add this line before other middleware
-app.UseSession();  
+app.UseSession();
 app.UseHttpsRedirection();
 app.UseStaticFiles();
 
@@ -125,14 +120,14 @@ app.MapRazorPages();
 
 app.UseEndpoints(endpoints =>
 {
-    endpoints.MapControllers(); // Configuring other endpoints, such as controllers and API endpoints
-    endpoints.MapRazorPages(); // Specifically configures how requests to those Razor Pages are handled within the endpoint routing system
+    endpoints.MapControllers();
+    endpoints.MapRazorPages();
     endpoints.MapControllerRoute(
         name: "areas",
-        pattern: "{area:exists}/{controller=Home}/{action=Dashboard}/{id?}"); //Configures the routing
+        pattern: "{area:exists}/{controller=Home}/{action=Dashboard}/{id?}");
     endpoints.MapControllerRoute(
         name: "default",
-        pattern: "{controller=Home}/{action=Dashboard}/{id?}"); //Configures the routing
+        pattern: "{controller=Home}/{action=Dashboard}/{id?}");
     endpoints.MapHub<SignalRHub>("/signalRHub", options =>
     {
         options.Transports = Microsoft.AspNetCore.Http.Connections.HttpTransportType.WebSockets;
