@@ -1,8 +1,10 @@
+using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc;
 using Project.Web.Models;
 
 namespace Project.Web.Controllers.Dummy
 {
+    [Authorize]
     public class DummyController : Controller
     {
         private static readonly List<DummyItem> _items = new()
