@@ -1,0 +1,24 @@
+@model Project.Core.Entities.Common.Account.Dtos.LoginDto
+@{
+    ViewData["Title"] = "Login";
+}
+
+<h1>Login</h1>
+
+<div asp-validation-summary="ModelOnly" class="text-danger"></div>
+
+<form asp-action="Login" method="post">
+    <div class="mb-3">
+        <label asp-for="Username" class="form-label"></label>
+        <input asp-for="Username" class="form-control" />
+        <span asp-validation-for="Username" class="text-danger"></span>
+    </div>
+    <div class="mb-3">
+        <label asp-for="Password" class="form-label"></label>
+        <input asp-for="Password" class="form-control" type="password" />
+        <span asp-validation-for="Password" class="text-danger"></span>
+    </div>
+    <button type="submit" class="btn btn-primary">Sign In</button>
+</form>
+
+<p class="mt-3 text-muted">Use <code>admin</code> / <code>admin</code> to log in.</p>
